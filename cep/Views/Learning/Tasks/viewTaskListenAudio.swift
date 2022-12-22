@@ -50,7 +50,7 @@ struct AudioPlayerControlsView: View {
             }
             */
             
-            // MARK: Кнопки плеера
+            // MARK: Player buttons
             
             HStack(spacing: 0) {
                 
@@ -103,7 +103,7 @@ struct AudioPlayerControlsView: View {
                     } label: {
                         Image(systemName: state != .playing ? "play.circle.fill" : "pause.circle.fill")
                             .font(.system(size: 55))
-                            .foregroundColor(state == .buffering ? designColors.BaseMagentaDisabled : designColors.BaseMagenta)
+                            .foregroundColor(Color(uiColor: UIColor(named: state == .buffering ? "BaseMagentaDisabled" : "BaseMagenta")!))
                     }
                     
                     Spacer()
@@ -147,14 +147,14 @@ struct AudioPlayerControlsView: View {
             .padding(.top, 5)
             .padding(.bottom, 5)
             .font(.system(size: 22))
-            .foregroundColor(designColors.BaseDarkPurple)
+            .foregroundColor(Color(uiColor: UIColor(named: "BaseDarkPurple")!))
             
             // MARK: Timeline
             
             ZStack {
                 
                 Slider(value: $currentTime, in: 0...currentDuration, onEditingChanged: sliderEditingChanged)
-                    .accentColor(designColors.BaseDarkPurple)
+                    .accentColor(Color(uiColor: UIColor(named: "BaseDarkPurple")!))
                     .onAppear {
                         let progressCircleConfig = UIImage.SymbolConfiguration(scale: .small)
                         UISlider.appearance()
@@ -186,7 +186,7 @@ struct AudioPlayerControlsView: View {
                     
                     if pointCenter > pointStart {
                         Rectangle()
-                            .fill(designColors.BasePurple)
+                            .fill(Color(uiColor: UIColor(named: "BasePurple")!))
                             .padding(.leading, firstLeading)
                             .padding(.trailing, firstTrailing)
                             .frame(width: frameWidth, height: 4)
@@ -196,7 +196,7 @@ struct AudioPlayerControlsView: View {
                     
                     if pointEnd > pointCenter {
                         Rectangle()
-                            .fill(designColors.BaseLightPurple)
+                            .fill(Color(uiColor: UIColor(named: "BaseLightPurple")!))
                             .padding(.leading, secondLeading)
                             .padding(.trailing, secondTrailing)
                             .frame(width: frameWidth, height: 4)
@@ -210,10 +210,10 @@ struct AudioPlayerControlsView: View {
             
             HStack {
                 Text("Читает Игорь Козлов (SYNO)")
-                    .foregroundColor(designColors.BaseDarkPurple)
+                    .foregroundColor(Color(uiColor: UIColor(named: "BaseDarkPurple")!))
                 Spacer()
                 Text("Версии")
-                    .foregroundColor(designColors.BaseMagenta)
+                    .foregroundColor(Color(uiColor: UIColor(named: "TextMagenta")!))
             }
             .font(Font.system(.caption).lowercaseSmallCaps())
             

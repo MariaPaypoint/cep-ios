@@ -20,8 +20,10 @@ struct viewLessonItem: View {
         let colorAccent: Color
         let colorBack: Color
         
+        // MARK: определяем цвет в зависимости от статуса
         if lesson.starsDone == 0 {
             colorBorder = designColors.lessonNewBorder
+            //colorBorder = Color(.quaternaryLabel)
             colorAccent = designColors.lessonNewAccent
             colorBack = designColors.lessonNewBack
         }
@@ -111,7 +113,7 @@ struct viewLessonItem: View {
                 .lineLimit(2)
                 .frame(width: 113.0, height: 34)
                 .font(.system(size: 14))
-                .foregroundColor(designColors.TextBase)
+                .foregroundColor(Color(uiColor: UIColor(named: "TextBase")!))
                 //.background(.red)
         }
     }

@@ -12,9 +12,27 @@ import SwiftUI
 struct _3234234App: App {
     
     init() {
-        UITabBar.appearance().barTintColor = UIColor(designColors.TabGrayDark)
+        //let tabBarAppearance = UITabBarAppearance()
+        
+        UITabBar.appearance().barTintColor = UIColor(named: "TabGrayDark")
         UITabBar.appearance().unselectedItemTintColor = .white
-        UITabBar.appearance().backgroundColor = UIColor(designColors.TabGray)
+        UITabBar.appearance().backgroundColor = UIColor(named: "TabGray")
+        
+        /*
+        tabBarAppearance.configureWithTransparentBackground()
+        tabBarAppearance.backgroundColor = UIColor(named: "TabGray")
+        tabBarAppearance.selectionIndicatorTintColor = UIColor(named: "AccentColor")
+        tabBarAppearance.selectionIndicatorTintColor = .systemRed
+        
+        UITabBar.appearance().standardAppearance = tabBarAppearance
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        */
+        
+        //UITabBar.appearance().barTintColor = UIColor(named: "TabGrayDark")
+        //UITabBar.appearance().unselectedItemTintColor = .white
+        //UITabBar.appearance().backgroundColor = UIColor(named: "TabGray")
+        
+        //UITabBar.appearance().tintColor = UIColor(named: "AccentColor")
         
         //UITabBar.appearance().isTranslucent = false
         //UITabBar.appearance().tintColor = UIColor(designColors.TabBlue)
@@ -27,31 +45,34 @@ struct _3234234App: App {
     var body: some Scene {
         
         WindowGroup {
-            /*
+            
             TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
                 
                 viewCourses().tabItem {
                     Image("tab_learning").renderingMode(.template)
                     Text("Обучение")
-                }.tag(1)
+                }
+                .tag(1)
+                //.accentColor(Color(uiColor: UIColor(named: "AccentColor")!))
                 
                 Text("Tab Content Church").tabItem {
                     Image("tab_church").renderingMode(.template)
                     Text("Церковь")
                 }.tag(2)
                 
-                Text("Tab Content Targets").tabItem {
+                Text("Tab Content Targets").badge(0).tabItem {
                     Image("tab_target").renderingMode(.template)
                     Text("Достижения")
                 }.tag(3)
                 
-                Text("Tab Content Profile").badge(0).tabItem {
+                viewProfile().tabItem {
                     Image("tab_profile").renderingMode(.template)
                     Text("Профиль")
                 }.tag(4)
             }
-            */
-            viewCourses()
+            .accentColor(Color(uiColor: UIColor(named: "AccentColor")!))
+            
+            //viewCourses()
         }
     }
 }

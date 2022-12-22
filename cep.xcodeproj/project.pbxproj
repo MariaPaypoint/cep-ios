@@ -16,6 +16,13 @@
 		860DBE0A28BA7B2200862334 /* advAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860DBE0928BA7B2200862334 /* advAudioManager.swift */; };
 		860DBE0C28BB67D700862334 /* advUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860DBE0B28BB67D700862334 /* advUtility.swift */; };
 		861667A228A45E11004AFE7A /* nrt-mf.json in Resources */ = {isa = PBXBuildFile; fileRef = 861667A128A45E11004AFE7A /* nrt-mf.json */; };
+		861811CF295027C80031B85B /* viewBottomPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861811CE295027C80031B85B /* viewBottomPanel.swift */; };
+		861811D1295028140031B85B /* viewTopPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861811D0295028140031B85B /* viewTopPanel.swift */; };
+		861811D429502A300031B85B /* viewCourseCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861811D329502A300031B85B /* viewCourseCaption.swift */; };
+		861811D629502A5A0031B85B /* viewCoursesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861811D529502A5A0031B85B /* viewCoursesList.swift */; };
+		861CF7862951961400A651FA /* OpenAPIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 861CF7852951961400A651FA /* OpenAPIClient */; };
+		861CF78B2952536F00A651FA /* viewProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CF78A2952536F00A651FA /* viewProfile.swift */; };
+		861CF78D2953A91B00A651FA /* viewAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CF78C2953A91A00A651FA /* viewAuth.swift */; };
 		8628DDAD287055A200DC07FD /* advDesignColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628DDAC287055A200DC07FD /* advDesignColors.swift */; };
 		8674343628513F7F00A2B9DC /* CourseParables.json in Resources */ = {isa = PBXBuildFile; fileRef = 8674343528513F7F00A2B9DC /* CourseParables.json */; };
 		869150CF28BD7D2700768E7D /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 869150CE28BD7D2700768E7D /* YouTubePlayerKit */; };
@@ -44,6 +51,12 @@
 		860DBE0928BA7B2200862334 /* advAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advAudioManager.swift; sourceTree = "<group>"; };
 		860DBE0B28BB67D700862334 /* advUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advUtility.swift; sourceTree = "<group>"; };
 		861667A128A45E11004AFE7A /* nrt-mf.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "nrt-mf.json"; sourceTree = "<group>"; };
+		861811CE295027C80031B85B /* viewBottomPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewBottomPanel.swift; sourceTree = "<group>"; };
+		861811D0295028140031B85B /* viewTopPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTopPanel.swift; sourceTree = "<group>"; };
+		861811D329502A300031B85B /* viewCourseCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewCourseCaption.swift; sourceTree = "<group>"; };
+		861811D529502A5A0031B85B /* viewCoursesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewCoursesList.swift; sourceTree = "<group>"; };
+		861CF78A2952536F00A651FA /* viewProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewProfile.swift; sourceTree = "<group>"; };
+		861CF78C2953A91A00A651FA /* viewAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewAuth.swift; sourceTree = "<group>"; };
 		8628DDAC287055A200DC07FD /* advDesignColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advDesignColors.swift; sourceTree = "<group>"; };
 		8674343528513F7F00A2B9DC /* CourseParables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CourseParables.json; sourceTree = "<group>"; };
 		869150D028BD7D5800768E7D /* viewTaskWatchVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTaskWatchVideo.swift; sourceTree = "<group>"; };
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861CF7862951961400A651FA /* OpenAPIClient in Frameworks */,
 				869150CF28BD7D2700768E7D /* YouTubePlayerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +125,56 @@
 				861667A128A45E11004AFE7A /* nrt-mf.json */,
 			);
 			path = NRT;
+			sourceTree = "<group>";
+		};
+		861811CD2950276D0031B85B /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				86F1760C284D431700ACBC1F /* viewCourses.swift */,
+				861811D529502A5A0031B85B /* viewCoursesList.swift */,
+				861811D329502A300031B85B /* viewCourseCaption.swift */,
+				86F17617284D4AA100ACBC1F /* viewLessonItem.swift */,
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		861811D2295029F40031B85B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				861811D0295028140031B85B /* viewTopPanel.swift */,
+				861811CE295027C80031B85B /* viewBottomPanel.swift */,
+				861CF78C2953A91A00A651FA /* viewAuth.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		861CF7872952529C00A651FA /* Learning */ = {
+			isa = PBXGroup;
+			children = (
+				861811CD2950276D0031B85B /* Courses */,
+				861CF788295252DA00A651FA /* Tasks */,
+			);
+			path = Learning;
+			sourceTree = "<group>";
+		};
+		861CF788295252DA00A651FA /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				86A91D64284C95BB009B7D71 /* viewTasks.swift */,
+				860C27972874EB2400ED962C /* viewTaskReadExcerpt.swift */,
+				86C707A128A97B7500D76E1A /* viewTaskListenAudio.swift */,
+				869150D028BD7D5800768E7D /* viewTaskWatchVideo.swift */,
+				86F1760A284D3D3A00ACBC1F /* viewTaskPray.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		861CF7892952534000A651FA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				861CF78A2952536F00A651FA /* viewProfile.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		86A91D56284C95BB009B7D71 = {
@@ -163,13 +227,9 @@
 		86F17615284D496200ACBC1F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				86F1760C284D431700ACBC1F /* viewCourses.swift */,
-				86F17617284D4AA100ACBC1F /* viewLessonItem.swift */,
-				86A91D64284C95BB009B7D71 /* viewTasks.swift */,
-				860C27972874EB2400ED962C /* viewTaskReadExcerpt.swift */,
-				86C707A128A97B7500D76E1A /* viewTaskListenAudio.swift */,
-				869150D028BD7D5800768E7D /* viewTaskWatchVideo.swift */,
-				86F1760A284D3D3A00ACBC1F /* viewTaskPray.swift */,
+				861811D2295029F40031B85B /* Common */,
+				861CF7872952529C00A651FA /* Learning */,
+				861CF7892952534000A651FA /* Profile */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +263,7 @@
 			name = cep;
 			packageProductDependencies = (
 				869150CE28BD7D2700768E7D /* YouTubePlayerKit */,
+				861CF7852951961400A651FA /* OpenAPIClient */,
 			);
 			productName = 23234234;
 			productReference = 86A91D5F284C95BB009B7D71 /* cep.app */;
@@ -234,6 +295,7 @@
 			mainGroup = 86A91D56284C95BB009B7D71;
 			packageReferences = (
 				869150CD28BD7D2700768E7D /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
+				861CF7842951961400A651FA /* XCRemoteSwiftPackageReference "cep-ios-apiclient" */,
 			);
 			productRefGroup = 86A91D60284C95BB009B7D71 /* Products */;
 			projectDirPath = "";
@@ -267,10 +329,15 @@
 			files = (
 				86F17613284D47CD00ACBC1F /* modelCourses.swift in Sources */,
 				86F17618284D4AA100ACBC1F /* viewLessonItem.swift in Sources */,
+				861811CF295027C80031B85B /* viewBottomPanel.swift in Sources */,
+				861811D1295028140031B85B /* viewTopPanel.swift in Sources */,
 				86C707A228A97B7500D76E1A /* viewTaskListenAudio.swift in Sources */,
 				860DBE0C28BB67D700862334 /* advUtility.swift in Sources */,
+				861CF78D2953A91B00A651FA /* viewAuth.swift in Sources */,
 				86F1760B284D3D3B00ACBC1F /* viewTaskPray.swift in Sources */,
 				86C707A428A97CB000D76E1A /* advDesignElements.swift in Sources */,
+				861811D629502A5A0031B85B /* viewCoursesList.swift in Sources */,
+				861811D429502A300031B85B /* viewCourseCaption.swift in Sources */,
 				86A91D65284C95BB009B7D71 /* viewTasks.swift in Sources */,
 				86F1760D284D431700ACBC1F /* viewCourses.swift in Sources */,
 				860C279228738E9E00ED962C /* typeBook.swift in Sources */,
@@ -281,6 +348,7 @@
 				86086F8D2886265600A29C0F /* advCornerRadius.swift in Sources */,
 				860C279428738F7D00ED962C /* modelBooks.swift in Sources */,
 				86A91D63284C95BB009B7D71 /* _cepApp.swift in Sources */,
+				861CF78B2952536F00A651FA /* viewProfile.swift in Sources */,
 				860C27982874EB2400ED962C /* viewTaskReadExcerpt.swift in Sources */,
 				869150D128BD7D5800768E7D /* viewTaskWatchVideo.swift in Sources */,
 			);
@@ -293,6 +361,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -353,6 +422,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -411,7 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"cep/Preview Content\"";
-				DEVELOPMENT_TEAM = 4SC2JCE37N;
+				DEVELOPMENT_TEAM = XAC7WBYNY2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -424,7 +494,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "-56.-3234234";
+				PRODUCT_BUNDLE_IDENTIFIER = user.ChristEdu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_REFLECTION_METADATA_LEVEL = all;
@@ -441,7 +511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"cep/Preview Content\"";
-				DEVELOPMENT_TEAM = 4SC2JCE37N;
+				DEVELOPMENT_TEAM = XAC7WBYNY2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -454,7 +524,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "-56.-3234234";
+				PRODUCT_BUNDLE_IDENTIFIER = user.ChristEdu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_REFLECTION_METADATA_LEVEL = all;
@@ -487,6 +557,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		861CF7842951961400A651FA /* XCRemoteSwiftPackageReference "cep-ios-apiclient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MariaPaypoint/cep-ios-apiclient.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		869150CD28BD7D2700768E7D /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
@@ -498,6 +576,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		861CF7852951961400A651FA /* OpenAPIClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 861CF7842951961400A651FA /* XCRemoteSwiftPackageReference "cep-ios-apiclient" */;
+			productName = OpenAPIClient;
+		};
 		869150CE28BD7D2700768E7D /* YouTubePlayerKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 869150CD28BD7D2700768E7D /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;

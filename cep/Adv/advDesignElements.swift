@@ -29,8 +29,19 @@ import SwiftUI
         .foregroundColor(.white)
         .padding(.vertical, 10)
         .frame(maxWidth: 180)
-        .background(designColors.BaseBlue)
+        .background(Color(uiColor: UIColor(named: "BaseBlue")!))
         .cornerRadius(10)
+}
+
+
+@ViewBuilder func baseFullOrangeButtonLabel(text: String) -> some View {
+    Text(text)
+        .font(.body)
+        .foregroundColor(.white)
+        .padding(.vertical, 15)
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor(named: "BaseOrange")!))
+        .cornerRadius(15)
 }
 
 @ViewBuilder func viewBack(action: @escaping () -> Void) -> some View {
@@ -54,7 +65,7 @@ import SwiftUI
     Text(text)
         .font(.largeTitle)
         .fontWeight(.thin)
-        .foregroundColor(designColors.TextBlue)
+        .foregroundColor(Color(uiColor: UIColor(named: "TextBlue")!))
         // Без этого подзаголовок куда-то улетает вниз
         .padding(.bottom, 0.1)
 }
@@ -63,7 +74,7 @@ import SwiftUI
     Text(text)
         //.font(.subheadline)
         .fontWeight(.light)
-        .foregroundColor(coral ? designColors.BaseCoral : designColors.TextPink)
+        .foregroundColor(Color(uiColor: UIColor(named: coral ? "BaseCoral" : "TextMagenta")!))
         .padding(.top, 3)
         .padding(.bottom, 12)
         .multilineTextAlignment(.center)
@@ -110,7 +121,7 @@ import SwiftUI
                 HStack(alignment: .top, spacing: 4) {
                     Text(String(verse_index))
                         .font(.footnote)
-                        .foregroundColor(designColors.TextGray)
+                        .foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
                         .frame(width: 20, alignment: .leading)
                         .padding(.top, 3)
                     //Text(book.chapters[chapter].verses[verse_index].text)
@@ -125,3 +136,31 @@ import SwiftUI
         }
     }
 }
+
+/*
+// https://stackoverflow.com/a/57715771/13514087
+
+// example usage:
+// TextField("", text: $login)
+//     .placeholder(when: login.isEmpty) {
+//         Text("E-mail").foregroundColor(Color(uiColor: UIColor(named: "TextBlue")!))
+//     }
+ 
+struct viewAuth_Previews: PreviewProvider {
+    static var previews: some View {
+        viewAuth()
+    }
+}
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
+        }
+    }
+}
+*/

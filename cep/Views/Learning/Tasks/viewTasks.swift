@@ -18,15 +18,20 @@ struct viewTasks: View {
     var body: some View {
         ScrollView() {
             
-            LessonCaption(imageName: lesson.imageNameFull, lessonCaption: lesson.nameFull, starsActiveCount: lesson.starsDone, starsFullCount: lesson.starsAll)
-            
-            ForEach(0..<lesson.taskGroups.count, id: \.self) { groupIndex in
-                TaskGroupCaption(grpCaption: lesson.taskGroups[groupIndex].name)
+            VStack {
+                LessonCaption(imageName: lesson.imageNameFull, lessonCaption: lesson.nameFull, starsActiveCount: lesson.starsDone, starsFullCount: lesson.starsAll)
                 
-                ForEach(0..<lesson.taskGroups[groupIndex].tasks.count, id: \.self) { taskIndex in
-                    TaskItem(task: lesson.taskGroups[groupIndex].tasks[taskIndex], groupIndex: groupIndex, taskIndex: taskIndex)
+                ForEach(0..<lesson.taskGroups.count, id: \.self) { groupIndex in
+                    TaskGroupCaption(grpCaption: lesson.taskGroups[groupIndex].name)
+                    
+                    VStack {
+                        ForEach(0..<lesson.taskGroups[groupIndex].tasks.count, id: \.self) { taskIndex in
+                            TaskItem(task: lesson.taskGroups[groupIndex].tasks[taskIndex], groupIndex: groupIndex, taskIndex: taskIndex)
+                        }
+                    }
                 }
             }
+            .padding(basePadding)
         }
         .fullScreenCover(isPresented: $showTaskItem) {
             //viewTaskListenAudio(task: lesson.taskGroups[0].tasks[0])
@@ -34,7 +39,7 @@ struct viewTasks: View {
         }
     }
     
-    // MARK: общий заголовок
+    // MARK: общий заголовок (Картинка, 3/11, "Притча о...")
     func LessonCaption(imageName: String, lessonCaption: String, starsActiveCount: Int, starsFullCount: Int) -> some View {
         
         VStack() {
@@ -44,32 +49,34 @@ struct viewTasks: View {
                 HStack() {
                     Spacer()
                     Text("\(starsActiveCount) / \(starsFullCount)")
-                        .foregroundColor(designColors.TextGreen)
+                        .foregroundColor(Color(uiColor: UIColor(named: "TextGreen")!))
                         .font(.system(size: 22))
                         .frame(alignment: .trailing)
-                        .padding(.trailing, basePadding)
+                        //.padding(.trailing, basePadding)
                 }
                 
             }
             Text(lessonCaption)
                 .font(.largeTitle)
-                .foregroundColor(designColors.TextBlue)
+                .foregroundColor(Color(uiColor: UIColor(named: "TextBlue")!))
                 .fontWeight(.thin)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, basePadding)
+                //.padding(.horizontal, basePadding)
                 .frame(alignment: .center)
                 .lineLimit(2)
                 .frame(height: 70.0)
                 .minimumScaleFactor(0.7)
         }
+        //.padding(basePadding)
         
     }
     
-    // MARK: подзаголовочек
+    // MARK: подзаголовочек ("ЗНАКОМСТВО")
     func TaskGroupCaption(grpCaption: String) -> some View {
         
         Text(grpCaption)
-            .foregroundColor(designColors.TextGray)
+            .foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
+            //.foregroundColor(Color(.tertiaryLabel))
             .padding(.vertical, basePadding)
             .font(.system(size: 16))
     }
@@ -113,6 +120,7 @@ struct viewTasks: View {
         case "read_excerpt": viewTaskReadExcerpt(task: task)
         case "listen_audio": viewTaskListenAudio(task: task)
         case "watch_video": viewTaskWatchVideo(task: task)
+        case "discuss_with_god": viewTaskPray()
         default: viewTaskReadExcerpt(task: task)
         }
     }
@@ -139,15 +147,18 @@ struct viewTasks: View {
                         .background(designColors.Gradients[groupIndex][taskIndex])
                         .clipShape(Circle())
                         .foregroundColor(.white)
-                        .padding(.leading, 15)
+                        //.padding(.leading, 15)
                     Text(taskParams.caption)
                         .fontWeight(.light)
+                        .foregroundColor(.primary)
                     Spacer()
                     
                     Image(task.done ? "star_enabled" : "star_disabled")
                         .foregroundColor(.yellow)
-                        .padding(.trailing, 15)
+                        //.padding(.trailing, 15)
                 }
+                //.padding(.bottom, 10)
+                //.padding(.top, -10)
             }
         //}
     }
@@ -160,7 +171,7 @@ struct viewTasks_Previews: PreviewProvider {
     
     static var previews: some View {
         ForEach(["iPhone SE (3rd generation)", "iPhone 13 Pro Max"], id: \.self) { deviceName in
-            viewTasks(lesson: lessons[0])
+            viewTasks(lesson: lessons[1])
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

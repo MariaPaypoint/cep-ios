@@ -83,24 +83,24 @@ struct viewTaskReadExcerpt: View {
                 } label: {
                     ZStack {
                         Rectangle()
-                            .foregroundColor(index == currentTranslationIndex ? designColors.BaseOrange : .white)
+                            .foregroundColor(index == currentTranslationIndex ? Color(uiColor: UIColor(named: "BaseOrange")!) : Color(.systemBackground))
                             .cornerRadius(radius: index==0 ? cRadius : 0, corners: [.topLeft, .bottomLeft])
                             .cornerRadius(radius: index==cTranslationsNames.count-1 ? cRadius : 0, corners: [.topRight, .bottomRight])
                         Text(translation)
                             .padding(.vertical, 10)
                             .font(.footnote)
-                            .foregroundColor(index != currentTranslationIndex ? designColors.BaseOrange : .white )
+                            .foregroundColor(index != currentTranslationIndex ? Color(uiColor: UIColor(named: "BaseOrange")!) : Color(.systemBackground) )
                     }
                 }
             }
         }
-        .foregroundColor(designColors.BaseOrange)
+        .foregroundColor(Color(uiColor: UIColor(named: "BaseOrange")!))
         .overlay(
             RoundedRectangle(cornerRadius: cRadius)
-                .stroke(designColors.BaseOrange, lineWidth: 2)
+                .stroke(Color(uiColor: UIColor(named: "BaseOrange")!), lineWidth: 2)
         )
         .font(.callout)
-        .background(designColors.BaseOrange)
+        .background(Color(uiColor: UIColor(named: "BaseOrange")!))
         .cornerRadius(cRadius)
         .padding(.bottom, 10)
     }
