@@ -4,59 +4,32 @@ import SwiftUI
 import OpenAPIClient
 
 struct viewTaskPray: View {
-    var body: some View {
+
         
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Обсуди с Богом"/*@END_MENU_TOKEN@*/)
-                .font(.title)
-            Text("Время для молитвенного обдумывания")
-            
-            Button {
-                let username = "admin@cep.paypoint.pro" // String |
-                let password = "4e679e90fcfd0f9a" // String |
-                //let grantType = "grantType_example" // String |  (optional)
-                //let scope = "scope_example" // String |  (optional) (default to "")
-                //let clientId = "clientId_example" // String |  (optional)
-                //let clientSecret = "clientSecret_example" // String |  (optional)
+        
+        
+        
+        @State var tap = false
 
-                // Login Access Token
-                OpenAPIClientAPI.basePath = "https://api.christedu.ru"
-                //LoginAPI.loginAccessTokenApiV1LoginAccessTokenPost(username: username, password: password, grantType: grantType, scope: scope, clientId: clientId, clientSecret: clientSecret) { (response, error) in
-                LoginAPI.loginAccessTokenApiV1LoginAccessTokenPost(username: username, password: password) { (response, error) in
-                    guard error == nil else {
-                        print(error!)
-                        return
-                    }
-
-                    if ((response) != nil) {
-                        print("TOKEN SUCCESS:")
-                        dump(response)
-                        
-                        OpenAPIClientAPI.customHeaders = ["Authorization": "Bearer \(response!.accessToken)"]
-                        
-                        print("START TEST")
-                        LoginAPI.testTokenApiV1LoginTestTokenPost() { (response, error) in
-                            guard error == nil else {
-                                print("TEST ERROR")
-                                print(error!)
-                                return
-                            }
-
-                            if ((response) != nil) {
-                                print("TEST SUCCESS:")
-                                dump(response)
-                            }
-                        }
-                    }
+        var body: some View {
+            VStack {
+                Text("View more").foregroundColor(.white)
+            }
+            .frame(width: 200, height: 200)
+            .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)), Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .mask(RoundedRectangle(cornerRadius: 30))
+            .shadow(color: Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)).opacity(tap ? 0.6 : 0.3), radius: tap ? 20 : 10, x: 0, y: tap ? 10 : 20)
+            .scaleEffect(tap ? 1.2 : 1)
+            .animation(.spring(response: 0.4, dampingFraction: 0.6))
+            .onTapGesture {
+                tap = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    tap = false
                 }
-                
-                
-            } label: {
-                Text("Test!")
             }
         }
         
-    }
+        
 }
 
 struct viewTaskPray_Previews: PreviewProvider {

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Task: Hashable, Codable {
+struct LessonTask: Hashable, Codable {
     var type: String
     var done: Bool
     var data: String
@@ -17,7 +17,7 @@ struct Task: Hashable, Codable {
 
 struct TaskGroup: Hashable, Codable {
     var name: String
-    var tasks: [Task]
+    var tasks: [LessonTask]
 }
 
 struct Lesson: Hashable, Codable, Identifiable {

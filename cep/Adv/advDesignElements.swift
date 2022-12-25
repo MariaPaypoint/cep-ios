@@ -81,7 +81,7 @@ import SwiftUI
 }
 
 
-@ViewBuilder func viewExcerpt(task: Task, translationIndex: Int) -> some View {
+@ViewBuilder func viewExcerpt(task: LessonTask, translationIndex: Int) -> some View {
     ForEach(task.data.components(separatedBy: ","), id: \.self) { excerpt in
         if excerpt != "" {
             viewExcerptStrings(excerpt: excerpt, translationIndex: translationIndex)

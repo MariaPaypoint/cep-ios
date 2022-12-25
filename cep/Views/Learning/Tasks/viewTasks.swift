@@ -115,7 +115,7 @@ struct viewTasks: View {
         }
     }
     
-    @ViewBuilder func chooseDestination(task: Task) -> some View {
+    @ViewBuilder func chooseDestination(task: LessonTask) -> some View {
         switch task.type {
         case "read_excerpt": viewTaskReadExcerpt(task: task)
         case "listen_audio": viewTaskListenAudio(task: task)
@@ -126,7 +126,7 @@ struct viewTasks: View {
     }
     
     // MARK: заданьице
-    @ViewBuilder func TaskItem(task: Task, groupIndex: Int, taskIndex: Int) -> some View {
+    @ViewBuilder func TaskItem(task: LessonTask, groupIndex: Int, taskIndex: Int) -> some View {
         
         let taskParams = getTaskParams(taskType: task.type)
         

@@ -306,7 +306,7 @@ struct AudioPlayerControlsView: View {
 
 struct viewTaskListenAudio: View {
     
-    var task: Task
+    var task: LessonTask
     
     @Environment(\.dismiss) var dismiss
     

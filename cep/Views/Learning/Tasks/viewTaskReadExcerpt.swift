@@ -9,7 +9,7 @@ import SwiftUI
 
 struct viewTaskReadExcerpt: View {
     
-    var task: Task
+    var task: LessonTask
     @State var currentTranslationIndex: Int = globalCurrentTranslationIndex
     
     @Environment(\.dismiss) var dismiss

@@ -12,7 +12,7 @@ import YouTubePlayerKit
 
 struct viewTaskWatchVideo: View {
     
-    var task: Task
+    var task: LessonTask
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
