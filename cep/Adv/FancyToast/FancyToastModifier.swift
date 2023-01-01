@@ -29,7 +29,9 @@ struct FancyToastModifier: ViewModifier {
                 ZStack {
                     mainToastView()
                         .offset(y: 0) //
-                }.animation(.spring(), value: toast)
+                }
+                .animation(.spring(), value: toast)
+                //.animation(.interpolatingSpring(mass: 1, stiffness: 50, damping: 10, initialVelocity: 0), value: toast)
             )
             .onChange(of: toast) { value in
                 showToast()

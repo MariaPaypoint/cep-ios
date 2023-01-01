@@ -91,7 +91,7 @@ struct viewTasks: View {
         case "read_excerpt":
             return TaskParams(caption: "Прочти отрывок", imageSystemName: "text.redaction")
         case "listen_audio":
-            return TaskParams(caption: "Прослушай аудио", imageSystemName: "headphones")
+            return TaskParams(caption: "Прослушай отрывок", imageSystemName: "headphones")
         case "watch_video":
             return TaskParams(caption: "Посмотри видео", imageSystemName: "play.rectangle.fill")
         case "insert_missed":
@@ -116,12 +116,16 @@ struct viewTasks: View {
     }
     
     @ViewBuilder func chooseDestination(task: LessonTask) -> some View {
+        
         switch task.type {
-        case "read_excerpt": viewTaskReadExcerpt(task: task)
-        case "listen_audio": viewTaskListenAudio(task: task)
-        case "watch_video": viewTaskWatchVideo(task: task)
-        case "discuss_with_god": viewTaskPray()
-        default: viewTaskReadExcerpt(task: task)
+            case "read_excerpt"     : viewTaskReadExcerpt(task: task)
+            case "listen_audio"     : viewTaskListenAudio(task: task)
+            case "watch_video"      : viewTaskWatchVideo(task: task)
+            case "discuss_with_god" : viewTaskPray(task: task)
+            case "insert_missed"    : viewTaskInsert(task: task)
+            case "find_words"       : viewTaskFindWords(task: task)
+            case "put_in_order"     : viewTaskOrderWords(task: task)
+            default: viewTaskReadExcerpt(task: task)
         }
     }
     

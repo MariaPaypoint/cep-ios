@@ -3,8 +3,6 @@
 //  cep
 //
 //  Created by Maria Novikova on 14.08.2022.
-//
-
 
 import SwiftUI
 import AVFoundation
@@ -12,6 +10,60 @@ import AVFoundation
 //let periodFrom: Int64 = 18
 let periodFrom: Double = 18.0
 let periodTo: Double = 248.5 // 248
+
+
+struct viewTaskListenAudio: View {
+    
+    //let localAccentColor = "AccentColorBright"
+    let localAccentColor = "AccentColorCalm"
+    //let localAccentColor = "BaseOrange"
+
+    var task: LessonTask
+    
+    @Environment(\.dismiss) var dismiss
+    
+    @State var currentTranslationIndex: Int = globalCurrentTranslationIndex
+    @State private var currentPosition = 0.0
+    
+    let player = AVPlayer()
+    
+    var body: some View {
+        
+        VStack {
+            viewBack() { dismiss() }
+            baseCaption(text: "Прослушай аудио")
+            baseSubCaption(task.dataDescription)
+            
+            AudioPlayerControlsView(player: player,
+                                    timeObserver: PlayerTimeObserver(player: player),
+                                    durationObserver: PlayerDurationObserver(player: player),
+                                    itemObserver: PlayerItemObserver(player: player), localAccentColor: localAccentColor)
+            
+            ScrollView() {
+                viewExcerpt(task: task, translationIndex: currentTranslationIndex)
+            }
+            
+            Button() {
+                dismiss()
+            } label: {
+                baseButtonLabel("Готово!", colorName: localAccentColor)
+            }
+            .padding(.top, 10)
+            .padding(.bottom, 5)
+        }
+        .padding(.horizontal, basePadding)
+        .onAppear {
+            guard let url = URL(string: "https://4bbl.ru/data/syn-bondarenko/40/13.mp3") else {
+                return
+            }
+            let playerItem = AVPlayerItem(url: url)
+            self.player.replaceCurrentItem(with: playerItem)
+            
+            //self.player.seek(to: CMTimeMake(value: Int64(periodFrom*100), timescale: 100))
+        }
+    }
+}
+
 
 struct AudioPlayerControlsView: View {
     private enum PlaybackState: Int {
@@ -26,6 +78,7 @@ struct AudioPlayerControlsView: View {
     let timeObserver: PlayerTimeObserver
     let durationObserver: PlayerDurationObserver
     let itemObserver: PlayerItemObserver
+    let localAccentColor: String
     
     @State private var currentTime: TimeInterval = 0
     @State private var currentDuration: TimeInterval = 0
@@ -57,7 +110,7 @@ struct AudioPlayerControlsView: View {
                 HStack(spacing: 0) {
                     Text("\(Utility.formatSecondsToHMS(currentTime))")
                         .font(.system(size: 13))
-                    //.foregroundColor(designColors.TextGray)
+                        .foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
                         .multilineTextAlignment(.leading)
                         //.frame(minWidth: 45)
                         
@@ -103,7 +156,7 @@ struct AudioPlayerControlsView: View {
                     } label: {
                         Image(systemName: state != .playing ? "play.circle.fill" : "pause.circle.fill")
                             .font(.system(size: 55))
-                            .foregroundColor(Color(uiColor: UIColor(named: state == .buffering ? "BaseMagentaDisabled" : "BaseMagenta")!))
+                            .foregroundColor(Color(uiColor: UIColor(named: state == .buffering ? "PlayerButtonDisabled" : "PlayerButton")!))
                     }
                     
                     Spacer()
@@ -132,6 +185,7 @@ struct AudioPlayerControlsView: View {
                         
                     }
                 }
+                .foregroundColor(Color(uiColor: UIColor(named: "PlayerButton")!))
                 
                 Spacer()
                 
@@ -139,22 +193,22 @@ struct AudioPlayerControlsView: View {
                     Spacer()
                     Text("\(Utility.formatSecondsToHMS(currentDuration))")
                         .font(.system(size: 13))
-                        //.foregroundColor(designColors.TextGray)
+                        .foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
                 }.frame(width: 50)
+                    //.foregroundColor(Color(uiColor: UIColor(named: "BaseDarkPurple")!))
                 
                 
             }
             .padding(.top, 5)
             .padding(.bottom, 5)
             .font(.system(size: 22))
-            .foregroundColor(Color(uiColor: UIColor(named: "BaseDarkPurple")!))
             
             // MARK: Timeline
             
             ZStack {
                 
                 Slider(value: $currentTime, in: 0...currentDuration, onEditingChanged: sliderEditingChanged)
-                    .accentColor(Color(uiColor: UIColor(named: "BaseDarkPurple")!))
+                    .accentColor(Color(uiColor: UIColor(named: "PlayerButton")!))
                     .onAppear {
                         let progressCircleConfig = UIImage.SymbolConfiguration(scale: .small)
                         UISlider.appearance()
@@ -186,7 +240,7 @@ struct AudioPlayerControlsView: View {
                     
                     if pointCenter > pointStart {
                         Rectangle()
-                            .fill(Color(uiColor: UIColor(named: "BasePurple")!))
+                            .fill(Color(uiColor: UIColor(named: "PlayerActivePartListened")!))
                             .padding(.leading, firstLeading)
                             .padding(.trailing, firstTrailing)
                             .frame(width: frameWidth, height: 4)
@@ -196,7 +250,7 @@ struct AudioPlayerControlsView: View {
                     
                     if pointEnd > pointCenter {
                         Rectangle()
-                            .fill(Color(uiColor: UIColor(named: "BaseLightPurple")!))
+                            .fill(Color(uiColor: UIColor(named: "TextGray")!))
                             .padding(.leading, secondLeading)
                             .padding(.trailing, secondTrailing)
                             .frame(width: frameWidth, height: 4)
@@ -210,10 +264,10 @@ struct AudioPlayerControlsView: View {
             
             HStack {
                 Text("Читает Игорь Козлов (SYNO)")
-                    .foregroundColor(Color(uiColor: UIColor(named: "BaseDarkPurple")!))
+                    .foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
                 Spacer()
                 Text("Версии")
-                    .foregroundColor(Color(uiColor: UIColor(named: "TextMagenta")!))
+                    .foregroundColor(Color(uiColor: UIColor(named: "PlayerButton")!))
             }
             .font(Font.system(.caption).lowercaseSmallCaps())
             
@@ -303,54 +357,6 @@ struct AudioPlayerControlsView: View {
 }
 
 // MARK: Main view
-
-struct viewTaskListenAudio: View {
-    
-    var task: LessonTask
-    
-    @Environment(\.dismiss) var dismiss
-    
-    @State var currentTranslationIndex: Int = globalCurrentTranslationIndex
-    @State private var currentPosition = 0.0
-    
-    let player = AVPlayer()
-    
-    var body: some View {
-        
-        VStack {
-            viewBack() { dismiss() }
-            baseCaption(text: "Прослушай аудио")
-            baseSubCaption(text: task.dataDescription, coral: false)
-            
-            AudioPlayerControlsView(player: player,
-                                    timeObserver: PlayerTimeObserver(player: player),
-                                    durationObserver: PlayerDurationObserver(player: player),
-                                    itemObserver: PlayerItemObserver(player: player))
-            
-            ScrollView() {
-                viewExcerpt(task: task, translationIndex: currentTranslationIndex)
-            }
-            
-            Button() {
-                dismiss()
-            } label: {
-                baseButtonLabel(text: "Готово!")
-            }
-            .padding(.top, 10)
-            .padding(.bottom, 5)
-        }
-        .padding(.horizontal, basePadding)
-        .onAppear {
-            guard let url = URL(string: "https://4bbl.ru/data/syn-bondarenko/40/13.mp3") else {
-                return
-            }
-            let playerItem = AVPlayerItem(url: url)
-            self.player.replaceCurrentItem(with: playerItem)
-            
-            //self.player.seek(to: CMTimeMake(value: Int64(periodFrom*100), timescale: 100))
-        }
-    }
-}
 
 struct viewTaskListenAudio_Previews: PreviewProvider {
     static var previews: some View {

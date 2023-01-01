@@ -29,7 +29,7 @@ struct viewAuth: View {
             VStack {
                 Spacer()
                 
-                Image("temp_login")
+                Image("illustration_login")
                     .renderingMode(.original)
                     .resizable()
                     .aspectRatio(contentMode: .fit)

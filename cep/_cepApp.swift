@@ -1,9 +1,12 @@
 //  Created by Maria Novikova on 05.06.2022.
 
-/// TODO:
-/// Поправить страницу юзера
-/// Грузить имя
-/// Рефакторинг апп
+/// АВТОРИЗАЦИЯ:
+/// Дисаблить кнопку в момент запроса по API
+/// Профиль до авторизации
+/// Научиться отображать ошибки
+///
+/// GAMES:
+/// 
 
 import SwiftUI
 
@@ -13,7 +16,6 @@ struct _3234234App: App {
     
     init() {
         //let tabBarAppearance = UITabBarAppearance()
-        
         
         // если надоест эта шняга, можно переделать на https://blckbirds.com/post/custom-tab-bar-in-swiftui/
         UITabBar.appearance().barTintColor = UIColor(named: "TabGrayDark")
@@ -44,16 +46,19 @@ struct _3234234App: App {
     
     @State private var isPres = true
     @State private var selection = 1
-    @StateObject var appGlobalMessages = TopMessages()
+    ///@StateObject var appGlobalMessages = TopMessages()
     
     var body: some Scene {
         WindowGroup {
             TabView(selection: $selection) {
                 
-                viewCourses().tabItem {
-                    Image("tab_learning").renderingMode(.template)
-                    Text("Обучение")
-                }.tag(1)
+                viewCourses()
+                    .tabItem {
+                        Image("tab_learning").renderingMode(.template)
+                        Text("Обучение")
+                    }.tag(1)
+                    .accentColor(Color(uiColor: UIColor(named: "TextBlue")!))
+                    
                 
                 Text("Church").tabItem {
                     Image("tab_church").renderingMode(.template)
@@ -68,27 +73,25 @@ struct _3234234App: App {
                 ZStack {
                     viewProfile()
                     
-                    buildMessageView(success: appGlobalMessages.Success, showVariable: appGlobalMessages.Presented, messageVariable: appGlobalMessages.Message)
+                    ///buildMessageView(success: appGlobalMessages.Success, showVariable: appGlobalMessages.Presented, messageVariable: appGlobalMessages.Message)
                 }
                 .tabItem {
                     Image("tab_profile").renderingMode(.template)
                     Text("Профиль")
                 }
-                .environmentObject(appGlobalMessages)
+                ///.environmentObject(appGlobalMessages)
                 .tag(4)
                 
             }
             .accentColor(Color(uiColor: UIColor(named: "AccentColor")!))
-            //.fullScreenCover(isPresented: $isPres) {
-            //    viewNotification(success: true)
-            //}
-            
         }
     }
 }
 
-// MARK: Global object
+/*
+// MARK: Global object for messages
 // https://stackoverflow.com/a/68876354/13514087
+// вроде работало даже, но переделала на FancyToast
 @MainActor class TopMessages: ObservableObject {
     
     @Published var Presented = false
@@ -119,3 +122,4 @@ struct _3234234App: App {
         }
     }
 }
+*/

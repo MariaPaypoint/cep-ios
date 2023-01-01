@@ -28,6 +28,35 @@
                         "dataDescription": "Притча о сеятеле"
                     }
                 ]
+            },
+            {
+                "name": "УЧИМ ЦИТАТУ",
+                "tasks": [
+                    {
+                        "type": "insert_missed",
+                        "done": true,
+                        "data": "mf 13:12",
+                        "dataDescription": "Евангелие от Матфея 13:12"
+                    },
+                    {
+                        "type": "find_words",
+                        "done": true,
+                        "data": "mf 13:40-41",
+                        "dataDescription": "Мф. 13:40-41"
+                    },
+                    {
+                        "type": "put_in_order",
+                        "done": true,
+                        "data": "mf 13:12",
+                        "dataDescription": "Мф. 13:12"
+                    },
+                    {
+                        "type": "write_by_heart",
+                        "done": true,
+                        "data": "",
+                        "dataDescription": ""
+                    }
+                ]
             }
         ]
     },
@@ -67,20 +96,20 @@
                     {
                         "type": "insert_missed",
                         "done": false,
-                        "data": "",
-                        "dataDescription": ""
+                        "data": "mf 13:40-41",
+                        "dataDescription": "Евангелие от Матфея 13:40-41"
                     },
                     {
                         "type": "find_words",
                         "done": false,
-                        "data": "",
-                        "dataDescription": ""
+                        "data": "mf 13:40-41",
+                        "dataDescription": "Мф. 13:40-41"
                     },
                     {
                         "type": "put_in_order",
                         "done": false,
-                        "data": "",
-                        "dataDescription": ""
+                        "data": "mf 13:26",
+                        "dataDescription": "Мф. 13:40-41"
                     },
                     {
                         "type": "write_by_heart",
@@ -131,7 +160,7 @@
         "name": "Горчичное зерно",
         "nameFull": "Притча о горчичном зерне",
         "imageName": "parable_mustard",
-        "row": 1,
+        "row": 0,
         "taskGroups": []
     },
     {
@@ -167,6 +196,14 @@
         "taskGroups": []
     },
     {
+        "id": 160,
+        "name": "Два должника",
+        "nameFull": "Притча о двух должниках",
+        "imageName": "parable_scales",
+        "row": 4,
+        "taskGroups": []
+    },
+    {
         "id": 80,
         "name": "Немилосердный должник",
         "nameFull": "Притча о немилосердном должнике",
@@ -195,7 +232,7 @@
         "name": "Злые виноградари",
         "nameFull": "Притча о злых виноградарях",
         "imageName": "parable_sword",
-        "row": 6,
+        "row": 5,
         "taskGroups": []
     },
     {
@@ -228,14 +265,6 @@
         "nameFull": "Притча о семени, возрастающем в земле неприметным образом",
         "imageName": "parable_tree",
         "row": 9,
-        "taskGroups": []
-    },
-    {
-        "id": 160,
-        "name": "Два должника",
-        "nameFull": "Притча о двух должниках",
-        "imageName": "parable_scales",
-        "row": 0,
         "taskGroups": []
     },
     {

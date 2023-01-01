@@ -7,42 +7,6 @@
 
 import SwiftUI
 
-@ViewBuilder func baseButtonLabel(text: String) -> some View {
-    
-    /*
-    ZStack {
-        Rectangle()
-            .foregroundColor(designColors.BaseBlue)
-            .cornerRadius(radius: 5, corners: .allCorners)
-        
-        Text(text)
-            .padding(.vertical, 10)
-            .font(.body)
-            .foregroundColor(.white)
-    }
-    .frame(height: 40)
-    .frame(maxWidth: 180)
-    .padding()
-    */
-    Text(text)
-        .font(.body)
-        .foregroundColor(.white)
-        .padding(.vertical, 10)
-        .frame(maxWidth: 180)
-        .background(Color(uiColor: UIColor(named: "BaseBlue")!))
-        .cornerRadius(10)
-}
-
-
-@ViewBuilder func baseFullOrangeButtonLabel(text: String) -> some View {
-    Text(text)
-        .font(.body)
-        .foregroundColor(.white)
-        .padding(.vertical, 15)
-        .frame(maxWidth: .infinity)
-        .background(Color(uiColor: UIColor(named: "BaseOrange")!))
-        .cornerRadius(15)
-}
 
 @ViewBuilder func viewBack(action: @escaping () -> Void) -> some View {
     
@@ -51,7 +15,7 @@ import SwiftUI
         Button(action: action) {
             Image(systemName: "chevron.backward")
                 .font(.system(size: 24))
-                //.foregroundColor(designColors.TextGray)
+                .foregroundColor(Color(uiColor: UIColor(named: "TextBlue")!))
         }
         
         Spacer()
@@ -66,78 +30,62 @@ import SwiftUI
         .font(.largeTitle)
         .fontWeight(.thin)
         .foregroundColor(Color(uiColor: UIColor(named: "TextBlue")!))
+        //.foregroundColor(Color(uiColor: UIColor(named: "BaseBlue")!))
         // Без этого подзаголовок куда-то улетает вниз
         .padding(.bottom, 0.1)
 }
 
-@ViewBuilder func baseSubCaption(text: String, coral: Bool = false) -> some View {
+@ViewBuilder func baseSubCaption(_ text: String) -> some View {
     Text(text)
-        //.font(.subheadline)
+        .fontWeight(.light)
+        .foregroundColor(Color(uiColor: UIColor(named: "TextBlue")!))
+        //.foregroundColor(Color(uiColor: UIColor(named: "BaseBlue")!))
+        .multilineTextAlignment(.center)
+        .padding(.top, 3)
+    /*
+     , coral: Bool = false
+     
         .fontWeight(.light)
         .foregroundColor(Color(uiColor: UIColor(named: coral ? "BaseCoral" : "TextMagenta")!))
         .padding(.top, 3)
         .padding(.bottom, 12)
         .multilineTextAlignment(.center)
+     */
 }
-
-
-@ViewBuilder func viewExcerpt(task: LessonTask, translationIndex: Int) -> some View {
-    ForEach(task.data.components(separatedBy: ","), id: \.self) { excerpt in
-        if excerpt != "" {
-            viewExcerptStrings(excerpt: excerpt, translationIndex: translationIndex)
-        }
-    }
-}
-
-@ViewBuilder func viewExcerptStrings(excerpt: String, translationIndex: Int) -> some View {
+@ViewBuilder func baseButtonLabel(_ text: String, colorName: String) -> some View {
     
-    //print(excerpt)
-    //if excerpt == "" {
-    //        return Text("Это странно, но отрывка нет")
-    //}
-    let currentTranslate = cTranslationsCodes[translationIndex]
-    let book = books[currentTranslate]
-    //print(currentTranslate)
-    
-    if book == nil {
-        Text("Этого перевода пока не существует!")
-    }
-    else {
-        
-        let arrExcerpt = excerpt.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ")
-        //let book_name = arrExcerpt[0]
-        let verses_address = arrExcerpt[1]
-        
-        let arrVersesAddress = verses_address.components(separatedBy: ":")
-        let chapter = Int(arrVersesAddress[0])!
-        let verses_interval = arrVersesAddress[1]
-        
-        let arrVersesInterval = verses_interval.components(separatedBy: "-")
-        let verse_first = Int(arrVersesInterval[0])!
-        let verse_last = arrVersesInterval.count > 1 ? Int(arrVersesInterval[1])! : Int(arrVersesInterval[0])!
-        
-        VStack {
-            ForEach(verse_first...verse_last, id: \.self) { verse_index in
-                HStack(alignment: .top, spacing: 4) {
-                    Text(String(verse_index))
-                        .font(.footnote)
-                        .foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
-                        .frame(width: 20, alignment: .leading)
-                        .padding(.top, 3)
-                    //Text(book.chapters[chapter].verses[verse_index].text)
-                    Text((book!.chapters.first(where: {element in element.id == chapter})?.verses.first(where: {element in element.id == verse_index})!.text)!)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                //.padding(.horizontal, 16)
-                .padding(.top, 4)
-                //.frame(maxWidth: .infinity)
-                
-            }
-        }
-    }
+    Text(text)
+        .font(.body)
+        .foregroundColor(Color(uiColor: UIColor(named: "\(colorName)Text") ?? .white))
+        .padding(.vertical, 10)
+        //.frame(maxWidth: 180)
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor(named: colorName)!))
+        .cornerRadius(10)
+    /*
+     .font(.body)
+     .foregroundColor(.white)
+     .padding(.vertical, 10)
+     .frame(maxWidth: 180)
+     .background(Color(uiColor: UIColor(named: "BaseBlue")!))
+     .cornerRadius(10)
+     */
 }
 
-/*
+
+@ViewBuilder func baseFullOrangeButtonLabel(text: String) -> some View {
+    Text(text)
+        .font(.body)
+        .foregroundColor(.white)
+        .padding(.vertical, 15)
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: UIColor(named: "BaseOrange")!))
+        .cornerRadius(15)
+}
+
+
+
+// MARK: Colored Placeholder
 // https://stackoverflow.com/a/57715771/13514087
 
 // example usage:
@@ -145,12 +93,7 @@ import SwiftUI
 //     .placeholder(when: login.isEmpty) {
 //         Text("E-mail").foregroundColor(Color(uiColor: UIColor(named: "TextBlue")!))
 //     }
- 
-struct viewAuth_Previews: PreviewProvider {
-    static var previews: some View {
-        viewAuth()
-    }
-}
+
 extension View {
     func placeholder<Content: View>(
         when shouldShow: Bool,
@@ -163,4 +106,4 @@ extension View {
         }
     }
 }
-*/
+

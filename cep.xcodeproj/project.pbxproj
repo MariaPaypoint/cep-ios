@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8602966E295E2F11006D70A5 /* viewQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8602966D295E2F11006D70A5 /* viewQuote.swift */; };
 		86086F8D2886265600A29C0F /* advCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86086F8C2886265600A29C0F /* advCornerRadius.swift */; };
 		860C27902873874500ED962C /* mf.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 860C278F2873874500ED962C /* mf.yaml */; };
 		860C279228738E9E00ED962C /* typeBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860C279128738E9E00ED962C /* typeBook.swift */; };
@@ -16,6 +17,15 @@
 		860DBE0A28BA7B2200862334 /* advAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860DBE0928BA7B2200862334 /* advAudioManager.swift */; };
 		860DBE0C28BB67D700862334 /* advUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860DBE0B28BB67D700862334 /* advUtility.swift */; };
 		861024C5295573C5009EB9BF /* viewNotification_del.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861024C4295573C5009EB9BF /* viewNotification_del.swift */; };
+		8615DE88295F6AEF0003E580 /* viewTaskInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE87295F6AEF0003E580 /* viewTaskInsert.swift */; };
+		8615DE8A295F97510003E580 /* advTags_del.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE89295F97510003E580 /* advTags_del.swift */; };
+		8615DE8D296042860003E580 /* advExcerpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE8C296042860003E580 /* advExcerpt.swift */; };
+		8615DE8F296046BD0003E580 /* viewTaskFindWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE8E296046BD0003E580 /* viewTaskFindWords.swift */; };
+		8615DE9229604C620003E580 /* donutsGridBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE9129604C620003E580 /* donutsGridBuilder.swift */; };
+		8615DE94296198A30003E580 /* viewTaskOrderWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE93296198A30003E580 /* viewTaskOrderWords.swift */; };
+		8615DE972961A6FB0003E580 /* typeCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE962961A6FB0003E580 /* typeCharacters.swift */; };
+		8615DE9A29623A4A0003E580 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8615DE9929623A4A0003E580 /* Lottie */; };
+		8615DE9C29623C2B0003E580 /* viewLottieSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE9B29623C2B0003E580 /* viewLottieSuccess.swift */; };
 		861667A228A45E11004AFE7A /* nrt-mf.json in Resources */ = {isa = PBXBuildFile; fileRef = 861667A128A45E11004AFE7A /* nrt-mf.json */; };
 		861811CF295027C80031B85B /* viewBottomPanel_unused.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861811CE295027C80031B85B /* viewBottomPanel_unused.swift */; };
 		861811D1295028140031B85B /* viewTopPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861811D0295028140031B85B /* viewTopPanel.swift */; };
@@ -46,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8602966D295E2F11006D70A5 /* viewQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewQuote.swift; sourceTree = "<group>"; };
 		86086F8C2886265600A29C0F /* advCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advCornerRadius.swift; sourceTree = "<group>"; };
 		860C278F2873874500ED962C /* mf.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = mf.yaml; sourceTree = "<group>"; };
 		860C279128738E9E00ED962C /* typeBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typeBook.swift; sourceTree = "<group>"; };
@@ -55,6 +66,14 @@
 		860DBE0928BA7B2200862334 /* advAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advAudioManager.swift; sourceTree = "<group>"; };
 		860DBE0B28BB67D700862334 /* advUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advUtility.swift; sourceTree = "<group>"; };
 		861024C4295573C5009EB9BF /* viewNotification_del.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewNotification_del.swift; sourceTree = "<group>"; };
+		8615DE87295F6AEF0003E580 /* viewTaskInsert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTaskInsert.swift; sourceTree = "<group>"; };
+		8615DE89295F97510003E580 /* advTags_del.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advTags_del.swift; sourceTree = "<group>"; };
+		8615DE8C296042860003E580 /* advExcerpt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advExcerpt.swift; sourceTree = "<group>"; };
+		8615DE8E296046BD0003E580 /* viewTaskFindWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTaskFindWords.swift; sourceTree = "<group>"; };
+		8615DE9129604C620003E580 /* donutsGridBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donutsGridBuilder.swift; sourceTree = "<group>"; };
+		8615DE93296198A30003E580 /* viewTaskOrderWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTaskOrderWords.swift; sourceTree = "<group>"; };
+		8615DE962961A6FB0003E580 /* typeCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typeCharacters.swift; sourceTree = "<group>"; };
+		8615DE9B29623C2B0003E580 /* viewLottieSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewLottieSuccess.swift; sourceTree = "<group>"; };
 		861667A128A45E11004AFE7A /* nrt-mf.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "nrt-mf.json"; sourceTree = "<group>"; };
 		861811CE295027C80031B85B /* viewBottomPanel_unused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewBottomPanel_unused.swift; sourceTree = "<group>"; };
 		861811D0295028140031B85B /* viewTopPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTopPanel.swift; sourceTree = "<group>"; };
@@ -90,6 +109,7 @@
 			files = (
 				861CF7862951961400A651FA /* OpenAPIClient in Frameworks */,
 				869150CF28BD7D2700768E7D /* YouTubePlayerKit in Frameworks */,
+				8615DE9A29623A4A0003E580 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +119,8 @@
 		86086F8B2886261400A29C0F /* Adv */ = {
 			isa = PBXGroup;
 			children = (
+				8615DE9029604C1A0003E580 /* Donuts */,
+				8615DE89295F97510003E580 /* advTags_del.swift */,
 				869DF424295760B200FAE85B /* FancyToast */,
 				86C707A528A97F3A00D76E1A /* advGlobals.swift */,
 				8628DDAC287055A200DC07FD /* advDesignColors.swift */,
@@ -128,6 +150,26 @@
 			path = SYNO;
 			sourceTree = "<group>";
 		};
+		8615DE8B295FA97A0003E580 /* Cources */ = {
+			isa = PBXGroup;
+			children = (
+				86F17610284D46AF00ACBC1F /* typeCourse.swift */,
+				86F17612284D47CD00ACBC1F /* modelCourses.swift */,
+				860C279128738E9E00ED962C /* typeBook.swift */,
+				860C279328738F7D00ED962C /* modelBooks.swift */,
+				8615DE8C296042860003E580 /* advExcerpt.swift */,
+			);
+			path = Cources;
+			sourceTree = "<group>";
+		};
+		8615DE9029604C1A0003E580 /* Donuts */ = {
+			isa = PBXGroup;
+			children = (
+				8615DE9129604C620003E580 /* donutsGridBuilder.swift */,
+			);
+			path = Donuts;
+			sourceTree = "<group>";
+		};
 		861667A028A44D79004AFE7A /* NRT */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +195,7 @@
 				861811D0295028140031B85B /* viewTopPanel.swift */,
 				861811CE295027C80031B85B /* viewBottomPanel_unused.swift */,
 				861024C4295573C5009EB9BF /* viewNotification_del.swift */,
-				861CF78C2953A91A00A651FA /* viewAuth.swift */,
+				8615DE9B29623C2B0003E580 /* viewLottieSuccess.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -175,6 +217,10 @@
 				86C707A128A97B7500D76E1A /* viewTaskListenAudio.swift */,
 				869150D028BD7D5800768E7D /* viewTaskWatchVideo.swift */,
 				86F1760A284D3D3A00ACBC1F /* viewTaskPray.swift */,
+				8602966D295E2F11006D70A5 /* viewQuote.swift */,
+				8615DE87295F6AEF0003E580 /* viewTaskInsert.swift */,
+				8615DE8E296046BD0003E580 /* viewTaskFindWords.swift */,
+				8615DE93296198A30003E580 /* viewTaskOrderWords.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -183,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				861CF78A2952536F00A651FA /* viewProfile.swift */,
+				861CF78C2953A91A00A651FA /* viewAuth.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -257,10 +304,8 @@
 		86F17616284D498500ACBC1F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				86F17610284D46AF00ACBC1F /* typeCourse.swift */,
-				86F17612284D47CD00ACBC1F /* modelCourses.swift */,
-				860C279128738E9E00ED962C /* typeBook.swift */,
-				860C279328738F7D00ED962C /* modelBooks.swift */,
+				8615DE962961A6FB0003E580 /* typeCharacters.swift */,
+				8615DE8B295FA97A0003E580 /* Cources */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +329,7 @@
 			packageProductDependencies = (
 				869150CE28BD7D2700768E7D /* YouTubePlayerKit */,
 				861CF7852951961400A651FA /* OpenAPIClient */,
+				8615DE9929623A4A0003E580 /* Lottie */,
 			);
 			productName = 23234234;
 			productReference = 86A91D5F284C95BB009B7D71 /* cep.app */;
@@ -316,6 +362,7 @@
 			packageReferences = (
 				869150CD28BD7D2700768E7D /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 				861CF7842951961400A651FA /* XCRemoteSwiftPackageReference "cep-ios-apiclient" */,
+				8615DE9829623A490003E580 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 86A91D60284C95BB009B7D71 /* Products */;
 			projectDirPath = "";
@@ -348,25 +395,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				86F17613284D47CD00ACBC1F /* modelCourses.swift in Sources */,
+				8615DE8D296042860003E580 /* advExcerpt.swift in Sources */,
 				86F17618284D4AA100ACBC1F /* viewLessonItem.swift in Sources */,
 				861811CF295027C80031B85B /* viewBottomPanel_unused.swift in Sources */,
 				861811D1295028140031B85B /* viewTopPanel.swift in Sources */,
+				8615DE8A295F97510003E580 /* advTags_del.swift in Sources */,
 				86C707A228A97B7500D76E1A /* viewTaskListenAudio.swift in Sources */,
 				860DBE0C28BB67D700862334 /* advUtility.swift in Sources */,
 				861CF78D2953A91B00A651FA /* viewAuth.swift in Sources */,
+				8602966E295E2F11006D70A5 /* viewQuote.swift in Sources */,
+				8615DE9229604C620003E580 /* donutsGridBuilder.swift in Sources */,
 				86F1760B284D3D3B00ACBC1F /* viewTaskPray.swift in Sources */,
 				86C707A428A97CB000D76E1A /* advDesignElements.swift in Sources */,
 				869DF42129575F8000FAE85B /* FancyToastView.swift in Sources */,
 				869DF426295760D000FAE85B /* FancyToastModifier.swift in Sources */,
 				861811D629502A5A0031B85B /* viewCoursesList.swift in Sources */,
 				861811D429502A300031B85B /* viewCourseCaption.swift in Sources */,
+				8615DE972961A6FB0003E580 /* typeCharacters.swift in Sources */,
+				8615DE94296198A30003E580 /* viewTaskOrderWords.swift in Sources */,
+				8615DE8F296046BD0003E580 /* viewTaskFindWords.swift in Sources */,
 				86A91D65284C95BB009B7D71 /* viewTasks.swift in Sources */,
 				869DF42329575FC600FAE85B /* FancyToastStyle.swift in Sources */,
 				86F1760D284D431700ACBC1F /* viewCourses.swift in Sources */,
 				860C279228738E9E00ED962C /* typeBook.swift in Sources */,
 				860DBE0A28BA7B2200862334 /* advAudioManager.swift in Sources */,
 				8628DDAD287055A200DC07FD /* advDesignColors.swift in Sources */,
+				8615DE88295F6AEF0003E580 /* viewTaskInsert.swift in Sources */,
 				86F17611284D46AF00ACBC1F /* typeCourse.swift in Sources */,
+				8615DE9C29623C2B0003E580 /* viewLottieSuccess.swift in Sources */,
 				86C707A628A97F3A00D76E1A /* advGlobals.swift in Sources */,
 				86086F8D2886265600A29C0F /* advCornerRadius.swift in Sources */,
 				861024C5295573C5009EB9BF /* viewNotification_del.swift in Sources */,
@@ -581,6 +637,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8615DE9829623A490003E580 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		861CF7842951961400A651FA /* XCRemoteSwiftPackageReference "cep-ios-apiclient" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MariaPaypoint/cep-ios-apiclient.git";
@@ -600,6 +664,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8615DE9929623A4A0003E580 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8615DE9829623A490003E580 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		861CF7852951961400A651FA /* OpenAPIClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 861CF7842951961400A651FA /* XCRemoteSwiftPackageReference "cep-ios-apiclient" */;

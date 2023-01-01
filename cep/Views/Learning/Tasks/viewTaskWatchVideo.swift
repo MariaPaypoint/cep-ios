@@ -12,20 +12,38 @@ import YouTubePlayerKit
 
 struct viewTaskWatchVideo: View {
     
+    //let localAccentColor = "AccentColorBright"
+    let localAccentColor = "AccentColorCalm"
+    //let localAccentColor = "BaseOrange"
+
     var task: LessonTask
     @Environment(\.dismiss) var dismiss
     
+    let youTubePlayer: YouTubePlayer = "https://youtube.com/watch?v=Ox8iNnGbnhM"
+    
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             viewBack() { dismiss() }
             baseCaption(text: "Просмотр видео")
-            baseSubCaption(text: task.dataDescription, coral: false)
+            baseSubCaption(task.dataDescription)
+                .padding(.bottom, 15)
+            
+            
+            YouTubePlayerView(
+                "https://youtube.com/watch?v=Ox8iNnGbnhM"
+            )
+            .frame(height: 220)
+            
+            Spacer()
+            
+            Button() {
+                dismiss()
+            } label: {
+                baseButtonLabel("Готово!", colorName: localAccentColor)
+            }
         }
-        .padding(.horizontal, basePadding)
-                    
-        YouTubePlayerView(
-            "https://youtube.com/watch?v=Ox8iNnGbnhM"
-        )
+        .padding()
+             
     }
 }
 
