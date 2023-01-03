@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Character: Identifiable,Hashable, Equatable {
+struct OrderCharacter: Identifiable,Hashable, Equatable {
     var id = UUID().uuidString
     var value: String
     var padding: CGFloat = 10
@@ -16,12 +16,12 @@ struct Character: Identifiable,Hashable, Equatable {
     var isShowing: Bool = false
 }
 
-func getCharacters(phrase: String) -> [Character] {
+func getOrderCharacters(phrase: String) -> [OrderCharacter] {
     
-    var resCharacters: [Character] = []
+    var resCharacters: [OrderCharacter] = []
     
-    for str in phrase.trimmingCharacters(in: CharacterSet(charactersIn: " ,")).components(separatedBy: " ") {
-        resCharacters.append(Character(value: str))
+    for str in phrase.components(separatedBy: " ") {
+        resCharacters.append(OrderCharacter(value: str))
     }
     
     return resCharacters

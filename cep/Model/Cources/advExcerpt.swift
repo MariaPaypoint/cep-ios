@@ -56,7 +56,7 @@ func getExcerptText(excerpts: String, translationIndex: Int) -> String {
         resText = resText + verse.text + " "
     }
     
-    return resText
+    return resText.trimmingCharacters(in: CharacterSet(charactersIn: " ,"))
 }
 
 // MARK: Готовое отображение

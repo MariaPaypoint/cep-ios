@@ -14,14 +14,14 @@ struct viewTaskOrderWords: View {
     let localAccentColor = "AccentColorCalm"
     
     var task: LessonTask
-    @State private var showHelp = false
+    @State private var showHelp = true
     
-    @State var characters: [Character] = []
+    @State var characters: [OrderCharacter] = []
     @State var progress: CGFloat = 0
     // for drag
-    @State var shuffledRows: [[Character]] = []
+    @State var shuffledRows: [[OrderCharacter]] = []
     // for drop
-    @State var rows: [[Character]] = []
+    @State var rows: [[OrderCharacter]] = []
     
     @State var animateWrongText: Bool = false
     @State var droppedCount: CGFloat = 0
@@ -61,15 +61,12 @@ struct viewTaskOrderWords: View {
                                 .padding(.top, 15)
                         }
                         else {
-                            //GeometryReader { geometry in
-                                LottieView(animationView: animationView)
-                                    .frame(maxWidth: .infinity)
-                                    .onTapGesture() {
-                                        animationView.play()
-                                    }
-                                    .frame(height: geometry.size.width)
-                                    //.background(.gray)
-                            //}
+                            LottieView(animationView: animationView)
+                                .frame(maxWidth: .infinity)
+                                .onTapGesture() {
+                                    animationView.play()
+                                }
+                                .frame(height: geometry.size.width)
                         }
                         Spacer()
                         
@@ -98,7 +95,7 @@ struct viewTaskOrderWords: View {
             if rows.isEmpty {
                 // First creating shuffled one
                 // then normal one
-                characters = getCharacters(phrase: getExcerptText(excerpts: task.data, translationIndex: globalCurrentTranslationIndex))
+                characters = getOrderCharacters(phrase: getExcerptText(excerpts: task.data, translationIndex: globalCurrentTranslationIndex))
                 let characters_ = characters
                 characters = characters.shuffled()
                 shuffledRows = generateGrid()
@@ -144,7 +141,7 @@ struct viewTaskOrderWords: View {
                                             }
                                         }
                                         else {
-                                            animateVrong()
+                                            animateWrong()
                                         }
                                         break
                                     }
@@ -205,7 +202,7 @@ struct viewTaskOrderWords: View {
                                             }
                                         }
                                         else {
-                                            animateVrong()
+                                            animateWrong()
                                         }
                                     }
                                 }
@@ -262,7 +259,7 @@ struct viewTaskOrderWords: View {
     */
     
     // MARK: Gustom grid cols
-    func generateGrid() -> [[Character]] {
+    func generateGrid() -> [[OrderCharacter]] {
         // Step 1
         // Identifying each text Width and update
         
@@ -271,8 +268,8 @@ struct viewTaskOrderWords: View {
             characters[item.offset].textSize = textSize
         }
         
-        var gridArray: [[Character]] = []
-        var tempArray: [Character] = []
+        var gridArray: [[OrderCharacter]] = []
+        var tempArray: [OrderCharacter] = []
         
         // Current Width
         var currentWidth: CGFloat = 0
@@ -301,7 +298,7 @@ struct viewTaskOrderWords: View {
     }
     
     // MARK: Identifying Text Size
-    func textSize(character: Character) -> CGFloat {
+    func textSize(character: OrderCharacter) -> CGFloat {
         let font = UIFont.systemFont(ofSize: character.fontSize)
         
         let attributes = [NSAttributedString.Key.font : font]
@@ -315,7 +312,7 @@ struct viewTaskOrderWords: View {
     // MARK: updating shuffled array
     
     
-    func updateShuffledArray(character: Character) {
+    func updateShuffledArray(character: OrderCharacter) {
         for index in shuffledRows.indices {
             for subIndex in shuffledRows[index].indices {
                 if shuffledRows[index][subIndex].id == character.id {
@@ -326,7 +323,7 @@ struct viewTaskOrderWords: View {
     }
     
     
-    func updateArray(character: Character) {
+    func updateArray(character: OrderCharacter) {
         for index in rows.indices {
             for subIndex in rows[index].indices {
                 if rows[index][subIndex].id == character.id {
@@ -336,7 +333,7 @@ struct viewTaskOrderWords: View {
         }
     }
     
-    func updateCharacters(character: Character) {
+    func updateCharacters(character: OrderCharacter) {
         for index in characters.indices {
             if characters[index].id == character.id {
                 characters[index].isShowing = true
@@ -345,7 +342,7 @@ struct viewTaskOrderWords: View {
     }
     
     // MARK: Animation wrong
-    func animateVrong() {
+    func animateWrong() {
         withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.2, blendDuration: 0.2)) {
             animateWrongText = true
         }

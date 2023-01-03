@@ -21,11 +21,14 @@
 		8615DE8A295F97510003E580 /* advTags_del.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE89295F97510003E580 /* advTags_del.swift */; };
 		8615DE8D296042860003E580 /* advExcerpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE8C296042860003E580 /* advExcerpt.swift */; };
 		8615DE8F296046BD0003E580 /* viewTaskFindWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE8E296046BD0003E580 /* viewTaskFindWords.swift */; };
-		8615DE9229604C620003E580 /* donutsGridBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE9129604C620003E580 /* donutsGridBuilder.swift */; };
+		8615DE9229604C620003E580 /* modelDonutsGridBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE9129604C620003E580 /* modelDonutsGridBuilder.swift */; };
 		8615DE94296198A30003E580 /* viewTaskOrderWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE93296198A30003E580 /* viewTaskOrderWords.swift */; };
-		8615DE972961A6FB0003E580 /* typeCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE962961A6FB0003E580 /* typeCharacters.swift */; };
+		8615DE972961A6FB0003E580 /* typeOrderCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE962961A6FB0003E580 /* typeOrderCharacter.swift */; };
 		8615DE9A29623A4A0003E580 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8615DE9929623A4A0003E580 /* Lottie */; };
 		8615DE9C29623C2B0003E580 /* viewLottieSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE9B29623C2B0003E580 /* viewLottieSuccess.swift */; };
+		8615DE9E2962D4990003E580 /* viewDonutsSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE9D2962D4990003E580 /* viewDonutsSearch.swift */; };
+		8615DEA02962D6890003E580 /* modelWordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DE9F2962D6890003E580 /* modelWordGenerator.swift */; };
+		8615DEA229638C820003E580 /* viewDonutsHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615DEA129638C7F0003E580 /* viewDonutsHelp.swift */; };
 		861667A228A45E11004AFE7A /* nrt-mf.json in Resources */ = {isa = PBXBuildFile; fileRef = 861667A128A45E11004AFE7A /* nrt-mf.json */; };
 		861811CF295027C80031B85B /* viewBottomPanel_unused.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861811CE295027C80031B85B /* viewBottomPanel_unused.swift */; };
 		861811D1295028140031B85B /* viewTopPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861811D0295028140031B85B /* viewTopPanel.swift */; };
@@ -70,10 +73,13 @@
 		8615DE89295F97510003E580 /* advTags_del.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advTags_del.swift; sourceTree = "<group>"; };
 		8615DE8C296042860003E580 /* advExcerpt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advExcerpt.swift; sourceTree = "<group>"; };
 		8615DE8E296046BD0003E580 /* viewTaskFindWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTaskFindWords.swift; sourceTree = "<group>"; };
-		8615DE9129604C620003E580 /* donutsGridBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donutsGridBuilder.swift; sourceTree = "<group>"; };
+		8615DE9129604C620003E580 /* modelDonutsGridBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelDonutsGridBuilder.swift; sourceTree = "<group>"; };
 		8615DE93296198A30003E580 /* viewTaskOrderWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTaskOrderWords.swift; sourceTree = "<group>"; };
-		8615DE962961A6FB0003E580 /* typeCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typeCharacters.swift; sourceTree = "<group>"; };
+		8615DE962961A6FB0003E580 /* typeOrderCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typeOrderCharacter.swift; sourceTree = "<group>"; };
 		8615DE9B29623C2B0003E580 /* viewLottieSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewLottieSuccess.swift; sourceTree = "<group>"; };
+		8615DE9D2962D4990003E580 /* viewDonutsSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewDonutsSearch.swift; sourceTree = "<group>"; };
+		8615DE9F2962D6890003E580 /* modelWordGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelWordGenerator.swift; sourceTree = "<group>"; };
+		8615DEA129638C7F0003E580 /* viewDonutsHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewDonutsHelp.swift; sourceTree = "<group>"; };
 		861667A128A45E11004AFE7A /* nrt-mf.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "nrt-mf.json"; sourceTree = "<group>"; };
 		861811CE295027C80031B85B /* viewBottomPanel_unused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewBottomPanel_unused.swift; sourceTree = "<group>"; };
 		861811D0295028140031B85B /* viewTopPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewTopPanel.swift; sourceTree = "<group>"; };
@@ -165,7 +171,10 @@
 		8615DE9029604C1A0003E580 /* Donuts */ = {
 			isa = PBXGroup;
 			children = (
-				8615DE9129604C620003E580 /* donutsGridBuilder.swift */,
+				8615DE9F2962D6890003E580 /* modelWordGenerator.swift */,
+				8615DE9129604C620003E580 /* modelDonutsGridBuilder.swift */,
+				8615DE9D2962D4990003E580 /* viewDonutsSearch.swift */,
+				8615DEA129638C7F0003E580 /* viewDonutsHelp.swift */,
 			);
 			path = Donuts;
 			sourceTree = "<group>";
@@ -196,6 +205,7 @@
 				861811CE295027C80031B85B /* viewBottomPanel_unused.swift */,
 				861024C4295573C5009EB9BF /* viewNotification_del.swift */,
 				8615DE9B29623C2B0003E580 /* viewLottieSuccess.swift */,
+				8602966D295E2F11006D70A5 /* viewQuote.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -217,7 +227,6 @@
 				86C707A128A97B7500D76E1A /* viewTaskListenAudio.swift */,
 				869150D028BD7D5800768E7D /* viewTaskWatchVideo.swift */,
 				86F1760A284D3D3A00ACBC1F /* viewTaskPray.swift */,
-				8602966D295E2F11006D70A5 /* viewQuote.swift */,
 				8615DE87295F6AEF0003E580 /* viewTaskInsert.swift */,
 				8615DE8E296046BD0003E580 /* viewTaskFindWords.swift */,
 				8615DE93296198A30003E580 /* viewTaskOrderWords.swift */,
@@ -304,7 +313,7 @@
 		86F17616284D498500ACBC1F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8615DE962961A6FB0003E580 /* typeCharacters.swift */,
+				8615DE962961A6FB0003E580 /* typeOrderCharacter.swift */,
 				8615DE8B295FA97A0003E580 /* Cources */,
 			);
 			path = Model;
@@ -394,24 +403,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8615DEA229638C820003E580 /* viewDonutsHelp.swift in Sources */,
 				86F17613284D47CD00ACBC1F /* modelCourses.swift in Sources */,
 				8615DE8D296042860003E580 /* advExcerpt.swift in Sources */,
+				8615DEA02962D6890003E580 /* modelWordGenerator.swift in Sources */,
 				86F17618284D4AA100ACBC1F /* viewLessonItem.swift in Sources */,
 				861811CF295027C80031B85B /* viewBottomPanel_unused.swift in Sources */,
 				861811D1295028140031B85B /* viewTopPanel.swift in Sources */,
 				8615DE8A295F97510003E580 /* advTags_del.swift in Sources */,
 				86C707A228A97B7500D76E1A /* viewTaskListenAudio.swift in Sources */,
+				8615DE9E2962D4990003E580 /* viewDonutsSearch.swift in Sources */,
 				860DBE0C28BB67D700862334 /* advUtility.swift in Sources */,
 				861CF78D2953A91B00A651FA /* viewAuth.swift in Sources */,
 				8602966E295E2F11006D70A5 /* viewQuote.swift in Sources */,
-				8615DE9229604C620003E580 /* donutsGridBuilder.swift in Sources */,
+				8615DE9229604C620003E580 /* modelDonutsGridBuilder.swift in Sources */,
 				86F1760B284D3D3B00ACBC1F /* viewTaskPray.swift in Sources */,
 				86C707A428A97CB000D76E1A /* advDesignElements.swift in Sources */,
 				869DF42129575F8000FAE85B /* FancyToastView.swift in Sources */,
 				869DF426295760D000FAE85B /* FancyToastModifier.swift in Sources */,
 				861811D629502A5A0031B85B /* viewCoursesList.swift in Sources */,
 				861811D429502A300031B85B /* viewCourseCaption.swift in Sources */,
-				8615DE972961A6FB0003E580 /* typeCharacters.swift in Sources */,
+				8615DE972961A6FB0003E580 /* typeOrderCharacter.swift in Sources */,
 				8615DE94296198A30003E580 /* viewTaskOrderWords.swift in Sources */,
 				8615DE8F296046BD0003E580 /* viewTaskFindWords.swift in Sources */,
 				86A91D65284C95BB009B7D71 /* viewTasks.swift in Sources */,

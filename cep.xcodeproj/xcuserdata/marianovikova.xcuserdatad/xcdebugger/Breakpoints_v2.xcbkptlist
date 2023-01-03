@@ -36,5 +36,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "293EC2C5-02FA-4ED9-8602-C31BD0193C01"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "cep/Adv/Donuts/viewDonutsSearch.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "validateSelection()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "293EC2C5-02FA-4ED9-8602-C31BD0193C01 - 56b74893d74ffca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "cep.SearchView.validateSelection() -&gt; ()"
+                  moduleName = "cep"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marianovikova/Desktop/Development/christ_edu/cep/Adv/Donuts/viewDonutsSearch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "1651">
+               </Location>
+               <Location
+                  uuid = "293EC2C5-02FA-4ED9-8602-C31BD0193C01 - 4dff56350bd9fd14"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.String) -&gt; Swift.Bool in cep.SearchView.validateSelection() -&gt; ()"
+                  moduleName = "cep"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marianovikova/Desktop/Development/christ_edu/cep/Adv/Donuts/viewDonutsSearch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

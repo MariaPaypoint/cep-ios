@@ -48,7 +48,7 @@ struct viewQuote: View {
                         //}
                         
                         let excerpt = getExcerptText(excerpts: task.data, translationIndex: globalCurrentTranslationIndex)
-                        Text(excerpt.trimmingCharacters(in: CharacterSet(charactersIn: " ,")))
+                        Text(excerpt)
                             .multilineTextAlignment(.center)
                             .font(excerpt.count > 200 ? .body.weight(.regular) : .title3.weight(.regular))
                             .padding(.top, metrics.size.width * 0.05)

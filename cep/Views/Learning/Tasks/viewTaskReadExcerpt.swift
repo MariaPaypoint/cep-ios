@@ -59,7 +59,7 @@ struct viewTaskReadExcerpt: View {
     
     // MARK: Кнопки перевода
     @ViewBuilder private func viewTranslateButtons() -> some View {
-        
+        /*
         let columns = Array(repeating: GridItem(spacing: 1), count:cTranslationsNames.count)
         LazyVGrid(columns: columns, spacing: 1.0) {
             ForEach(Array(cTranslationsNames.enumerated()), id: \.element) { index, translation in
@@ -88,6 +88,10 @@ struct viewTaskReadExcerpt: View {
         .background(Color(uiColor: UIColor(named: localAccentColor)!))
         .cornerRadius(cRadius)
         .padding(.bottom, 10)
+        */
+        viewSegmentedButtons(arr: cTranslationsNames, selIndex: currentTranslationIndex, baseColor: Color(uiColor: UIColor(named: localAccentColor)!)) { selectedIndex in
+            self.setTranslate(index: selectedIndex)
+        }
     }
     
     private func setTranslate(index: Int) {
