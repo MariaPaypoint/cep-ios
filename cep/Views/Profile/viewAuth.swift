@@ -44,12 +44,12 @@ struct viewAuth: View {
                         toast = FancyToast(type: .info, title: "Дебаг!", message: "Тестовые логин и пароль подставлены")
                     }
                 
-                TextField("mail@example.com", text: $login)
+                TextField("Электронная почта", text: $login)
                     .keyboardType(.emailAddress)
                     .textInputAutocapitalization(.never)
-                //.placeholder(when: login.isEmpty) {
-                //    Text("E-mail").foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
-                //}
+                    //.placeholder(when: login.isEmpty) {
+                    //    Text("E-mail").foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
+                    //}
                     .foregroundColor(Color(uiColor: UIColor(named: "BaseBlue")!))
                 
                     .padding(15)
@@ -61,7 +61,7 @@ struct viewAuth: View {
                     )
                     .padding(.bottom, 10)
                 
-                SecureField("password", text: $password)
+                SecureField("Пароль", text: $password)
                     .foregroundColor(Color(uiColor: UIColor(named: "BaseBlue")!))
                     .padding(15)
                     .overlay(
@@ -76,7 +76,8 @@ struct viewAuth: View {
                 Button() {
                     auth()
                 } label: {
-                    baseFullOrangeButtonLabel(text: "Войти").padding(.bottom)
+                    baseButtonLabel("Войти")
+                        .padding(.bottom)
                 }
                 
                 Button() {
@@ -87,42 +88,25 @@ struct viewAuth: View {
                 }
                 
             }
-            .padding(basePadding)
+            .padding(globalBasePadding)
             .toastView(toast: $toast)
         }
     }
     
-    // MARK: API Authorization
+    
+    
     func auth() {
         
         OpenAPIClientAPI.basePath = "https://api.christedu.ru"
         LoginAPI.loginAccessTokenApiV1LoginAccessTokenPost(username: login, password: password) { (response, error) in
             guard error == nil else {
-                
-                dump(error!)
-                /*
-                if error is ErrorResponse {
-                    
-                    switch error as! ErrorResponse {
-                        case let .error(statusCode, data, error):
-                            //let bodyJson = data.flatMap { String(data: $0, encoding: .utf8) } ?? ""
-                            //print(bodyJson)
-                        print("11111111111")
-                    }
-                    //dump(error!)
-                }
-                */
-                
-                toast = FancyToast(type: .error, title: "Какая-то ошибка", message: "Может логин или пароль неверные. Я пока не умею вытаскивать текст ошибки из ответа.")
-                
-                ///appGlobalMessages.ShowMessage(success: false, message: "Я пока не научилась вытаскивать текст ошибки из ответа.")
-                
+                let errorText = analyze_error(e: error!)
+                toast = FancyToast(type: .error, title: "Ошибка", message: errorText)
                 return
             }
             
             if ((response) != nil) {
-                print("TOKEN SUCCESS:")
-                dump(response)
+                print("TOKEN SUCCESS: ", response!.accessToken)
                 
                 OpenAPIClientAPI.customHeaders = ["Authorization": "Bearer \(response!.accessToken)"]
                 
@@ -150,6 +134,7 @@ struct viewAuth: View {
         }
         
     }
+    
 }
 
 struct viewAuth_Previews: PreviewProvider {
@@ -160,3 +145,15 @@ struct viewAuth_Previews: PreviewProvider {
 }
 
 
+//extension Error {
+//    var errorReponseBS: HTTPValidationError? {
+//        guard let errorResponse = self as? ErrorResponse else { return nil }
+//        switch errorResponse {
+//        case let .error(_, data, _, _):
+//            if let data = data, let errorResponseBS = try? JSONDecoder().decode(HTTPValidationError.self, from: data) {
+//                return errorResponseBS
+//            }
+//        }
+//        return nil
+//    }
+//}

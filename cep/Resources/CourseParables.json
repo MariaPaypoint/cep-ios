@@ -4,28 +4,56 @@
         "name": "Сеятель",
         "nameFull": "Притча о сеятеле",
         "imageName": "parable_seeder",
-        "row": 0,
+        "row": 10,
         "taskGroups": [
             {
-                "name": "ЗНАКОМСТВО",
+                "name": "ЗНАКОМСТВО\n(притча в Евангелии от Матфея)",
                 "tasks": [
                     {
                         "type": "read_excerpt",
                         "done": true,
-                        "data": "mf 13:3-23",
+                        "data": "mat 13:3-23",
                         "dataDescription": "Евангелие от Матфея, глава 13"
                     },
                     {
                         "type": "listen_audio",
                         "done": true,
-                        "data": "mf 13:3-23",
-                        "dataDescription": "Евангелие от Матфея, глава 13\nПритча о сеятеле"
+                        "data": "mat 13:3-23",
+                        "dataDescription": "Евангелие от Матфея, глава 13"
+                    }
+                ]
+            },
+            {
+                "name": "ЗНАКОМСТВО\n(притча в Евангелии от Марка)",
+                "tasks": [
+                    {
+                        "type": "read_excerpt",
+                        "done": true,
+                        "data": "mrk 4:3-8, mrk 4:14-20",
+                        "dataDescription": "Евангелие от Марка, глава 4"
                     },
                     {
-                        "type": "watch_video",
+                        "type": "listen_audio",
                         "done": true,
-                        "data": "",
-                        "dataDescription": "Притча о сеятеле"
+                        "data": "mrk 4:3-8, mrk 4:14-20",
+                        "dataDescription": "Евангелие от Марка, глава 4"
+                    }
+                ]
+            },
+            {
+                "name": "ЗНАКОМСТВО\n(притча в Евангелии от Луки)",
+                "tasks": [
+                    {
+                        "type": "read_excerpt",
+                        "done": true,
+                        "data": "luk 8:5-8, luk 8:11-15",
+                        "dataDescription": "Евангелие от Луки, глава 8"
+                    },
+                    {
+                        "type": "listen_audio",
+                        "done": true,
+                        "data": "luk 8:5-8, luk 8:11-15",
+                        "dataDescription": "Евангелие от Луки, глава 8"
                     }
                 ]
             },
@@ -33,26 +61,37 @@
                 "name": "УЧИМ ЦИТАТУ",
                 "tasks": [
                     {
-                        "type": "insert_missed",
-                        "done": true,
-                        "data": "mf 13:12",
-                        "dataDescription": "Евангелие от Матфея 13:12"
-                    },
-                    {
                         "type": "find_words",
                         "done": true,
-                        "data": "mf 13:40-41",
+                        "data": "luk 8:15",
                         "dataDescription": "Мф. 13:40-41"
                     },
                     {
                         "type": "put_in_order",
                         "done": true,
-                        "data": "mf 13:12",
+                        "data": "luk 8:15",
                         "dataDescription": "Мф. 13:12"
+                    }
+                ]
+            },
+            {
+                "name": "ОБСУЖДЕНИЕ",
+                "tasks": [
+                    {
+                        "type": "discuss_with_god",
+                        "done": true,
+                        "data": "",
+                        "dataDescription": ""
                     },
                     {
-                        "type": "write_by_heart",
-                        "done": true,
+                        "type": "answer_question",
+                        "done": false,
+                        "data": "",
+                        "dataDescription": "Как вы думаете, Иисус в притче говорил о разных людях, или сердце одного человека может иногда быть плодоносным, а иногда теряющим Божье слово?"
+                    },
+                    {
+                        "type": "comment",
+                        "done": false,
                         "data": "",
                         "dataDescription": ""
                     }
@@ -62,25 +101,277 @@
     },
     {
         "id": 20,
-        "name": "Доброе семя и плевелы",
-        "nameFull": "Притча о добром семени и о плевелах",
-        "imageName": "parable_plants",
-        "row": 0,
+        "name": "Неприметное возрастание",
+        "nameFull": "Притча о семени, возрастающем в земле неприметным образом",
+        "imageName": "parable_tree",
+        "row": 10,
         "taskGroups": [
             {
-                "name": "ЗНАКОМСТВО",
+                "name": "ЗНАКОМСТВО\n(притча в Евангелии от Марка)",
                 "tasks": [
                     {
                         "type": "read_excerpt",
+                        "done": true,
+                        "data": "mrk 4:26-29",
+                        "dataDescription": "Евангелие от Марка, глава 4"
+                    },
+                    {
+                        "type": "listen_audio",
+                        "done": true,
+                        "data": "mrk 4:26-29",
+                        "dataDescription": "Евангелие от Марка, глава 4"
+                    }
+                ]
+            },
+            {
+                "name": "УЧИМ ЦИТАТУ",
+                "tasks": [
+                    {
+                        "type": "find_words",
+                        "done": true,
+                        "data": "mrk 4:28",
+                        "dataDescription": "Евангелие от Марка, 4:28"
+                    },
+                    {
+                        "type": "put_in_order",
+                        "done": true,
+                        "data": "mrk 4:28",
+                        "dataDescription": "Евангелие от Марка, 4:28"
+                    }
+                ]
+            },
+            {
+                "name": "ОБСУЖДЕНИЕ",
+                "tasks": [
+                    {
+                        "type": "discuss_with_god",
+                        "done": true,
+                        "data": "",
+                        "dataDescription": ""
+                    },
+                    {
+                        "type": "answer_question",
                         "done": false,
-                        "data": "mf 13:24-30, mf 13:36-43",
+                        "data": "",
+                        "dataDescription": "Чему бы вы уподобили Царство Небесное? Приведите пример, близкий и понятный современникам."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Горчичное зерно",
+        "nameFull": "Притча о горчичном зерне",
+        "imageName": "parable_mustard",
+        "row": 10,
+        "taskGroups": [
+            {
+                "name": "ЗНАКОМСТВО\n(притча в Евангелии от Матфея)",
+                "tasks": [
+                    {
+                        "type": "read_excerpt",
+                        "done": true,
+                        "data": "mat 13:31-32",
                         "dataDescription": "Евангелие от Матфея, глава 13"
                     },
                     {
                         "type": "listen_audio",
                         "done": true,
-                        "data": "mf 13:24-30, mf 13:36-43",
-                        "dataDescription": "Евангелие от Матфея, глава 13\nПритча о добром семени и плевелах"
+                        "data": "mat 13:31-32",
+                        "dataDescription": "Евангелие от Матфея, глава 13"
+                    }
+                ]
+            },
+            {
+                "name": "ЗНАКОМСТВО\n(притча в Евангелии от Марка)",
+                "tasks": [
+                    {
+                        "type": "read_excerpt",
+                        "done": true,
+                        "data": "mrk 4:30-32",
+                        "dataDescription": "Евангелие от Марка, глава 4"
+                    },
+                    {
+                        "type": "listen_audio",
+                        "done": true,
+                        "data": "mrk 4:30-32",
+                        "dataDescription": "Евангелие от Марка, глава 4"
+                    }
+                ]
+            },
+            {
+                "name": "УЧИМ ЦИТАТУ",
+                "tasks": [
+                    {
+                        "type": "find_words",
+                        "done": true,
+                        "data": "mrk 4:32",
+                        "dataDescription": "Евангелие от Марка, 4:32"
+                    },
+                    {
+                        "type": "put_in_order",
+                        "done": true,
+                        "data": "mrk 4:32",
+                        "dataDescription": "Евангелие от Марка, 4:32"
+                    }
+                ]
+            },
+            {
+                "name": "ОБСУЖДЕНИЕ",
+                "tasks": [
+                    {
+                        "type": "discuss_with_god",
+                        "done": true,
+                        "data": "",
+                        "dataDescription": ""
+                    },
+                    {
+                        "type": "answer_question",
+                        "done": false,
+                        "data": "",
+                        "dataDescription": "Можете ли вы вспомнить какое-то Слово, которое Бог посеял в ваше сердце, и которое выросло и стало благословением для вас и окружающих?"
+                    }
+                ]
+            }
+        ]
+    },
+    
+    {
+        "id": 40,
+        "name": "Доброе семя и плевелы",
+        "nameFull": "Притча о добром семени и о плевелах",
+        "imageName": "parable_plants",
+        "row": 40,
+        "taskGroups": [
+            {
+                "name": "ЗНАКОМСТВО\n(притча в Евангелии от Матфея)",
+                "tasks": [
+                    {
+                        "type": "read_excerpt",
+                        "done": false,
+                        "data": "mat 13:24-30, mat 13:36-43",
+                        "dataDescription": "Евангелие от Матфея, глава 13"
+                    },
+                    {
+                        "type": "listen_audio",
+                        "done": true,
+                        "data": "mat 13:24-30, mat 13:36-43",
+                        "dataDescription": "Евангелие от Матфея, глава 13"
+                    }
+                ]
+            },
+            {
+                "name": "УЧИМ ЦИТАТУ",
+                "tasks": [
+                    {
+                        "type": "insert_missed",
+                        "done": false,
+                        "data": "mat 13:40-41",
+                        "dataDescription": "Евангелие от Матфея 13:40-41"
+                    },
+                    {
+                        "type": "find_words",
+                        "done": false,
+                        "data": "mat 13:40-41",
+                        "dataDescription": "Евангелие от Матфея 13:40-41"
+                    },
+                    {
+                        "type": "put_in_order",
+                        "done": false,
+                        "data": "mat 13:40-41",
+                        "dataDescription": "Евангелие от Матфея 13:40-41"
+                    },
+                    {
+                        "type": "write_by_heart",
+                        "done": false,
+                        "data": "mat 13:40-41",
+                        "dataDescription": "Евангелие от Матфея 13:40-41"
+                    }
+                ]
+            },
+            {
+                "name": "ОБСУЖДЕНИЕ",
+                "tasks": [
+                    {
+                        "type": "discuss_with_god",
+                        "done": false,
+                        "data": "",
+                        "dataDescription": ""
+                    },
+                    {
+                        "type": "comment",
+                        "done": false,
+                        "data": "",
+                        "dataDescription": ""
+                    }
+                ]
+            },
+            {
+                "name": "ЗАКРЕПЛЕНИЕ",
+                "tasks": [
+                    {
+                        "type": "answer_question",
+                        "done": false,
+                        "data": "",
+                        "dataDescription": ""
+                    },
+                    {
+                        "type": "pass_test",
+                        "done": true,
+                        "data": "",
+                        "dataDescription": ""
+                    }
+                ]
+            }
+        ]
+    },
+    
+    {
+        "id": 44,
+        "name": "Тест",
+        "nameFull": "Тестовая притча для отладки",
+        "imageName": "parable_fishing",
+        "row": 40,
+        "taskGroups": [
+            {
+                "name": "ЗНАКОМСТВО",
+                "tasks": [
+                    {
+                        "type": "listen_audio",
+                        "done": true,
+                        "data": "gen 1:6",
+                        "dataDescription": ""
+                    },
+                    {
+                        "type": "listen_audio",
+                        "done": true,
+                        "data": "gen 2:3",
+                        "dataDescription": ""
+                    },
+                    {
+                        "type": "listen_audio",
+                        "done": true,
+                        "data": "gen 2:8",
+                        "dataDescription": ""
+                    },
+                    {
+                        "type": "listen_audio",
+                        "done": true,
+                        "data": "exo 2:7",
+                        "dataDescription": "exo 2:7"
+                    },
+                    {
+                        "type": "listen_audio",
+                        "done": true,
+                        "data": "exo 2:8",
+                        "dataDescription": "exo 2:8"
+                    },
+                    {
+                        "type": "listen_audio",
+                        "done": true,
+                        "data": "exo 2:9",
+                        "dataDescription": "exo 2:9"
                     },
                     {
                         "type": "watch_video",
@@ -155,252 +446,327 @@
             }
         ]
     },
-    {
-        "id": 30,
-        "name": "Горчичное зерно",
-        "nameFull": "Притча о горчичном зерне",
-        "imageName": "parable_mustard",
-        "row": 0,
-        "taskGroups": []
-    },
-    {
-        "id": 40,
-        "name": "Закваска",
-        "nameFull": "Притча о закваске",
-        "imageName": "parable_leaven",
-        "row": 1,
-        "taskGroups": []
-    },
+    
     {
         "id": 50,
-        "name": "Скрытое сокровище",
-        "nameFull": "Притча о сокровище, скрытом на поле",
-        "imageName": "parable_treasure",
-        "row": 2,
+        "name": "Неплодная смоковница",
+        "nameFull": "Притча о неплодной смоковнице в винограднике",
+        "imageName": "parable_dry",
+        "row": 50,
         "taskGroups": []
     },
     {
         "id": 60,
-        "name": "Купец и жемчуг",
-        "nameFull": "Притча о купце, ищущем хорошего жемчуга",
-        "imageName": "parable_pearl",
-        "row": 2,
+        "name": "Смоковница и деревья",
+        "nameFull": "Притча о смоковнице и деревьях",
+        "imageName": "parable_colortree",
+        "row": 50,
         "taskGroups": []
     },
+    
     {
         "id": 70,
-        "name": "Невод в море",
-        "nameFull": "Притча о неводе, закинутом в море",
-        "imageName": "parable_fishing",
-        "row": 3,
+        "name": "Закваска",
+        "nameFull": "Притча о закваске",
+        "imageName": "parable_leaven",
+        "row": 70,
         "taskGroups": []
     },
-    {
-        "id": 160,
-        "name": "Два должника",
-        "nameFull": "Притча о двух должниках",
-        "imageName": "parable_scales",
-        "row": 4,
-        "taskGroups": []
-    },
+    
     {
         "id": 80,
-        "name": "Немилосердный должник",
-        "nameFull": "Притча о немилосердном должнике",
-        "imageName": "parable_jail",
-        "row": 4,
+        "name": "Скрытое сокровище",
+        "nameFull": "Притча о сокровище, скрытом на поле",
+        "imageName": "parable_treasure",
+        "row": 80,
         "taskGroups": []
     },
     {
         "id": 90,
-        "name": "Работники в винограднике",
-        "nameFull": "Притча о работниках в винограднике",
-        "imageName": "parable_grape",
-        "row": 5,
+        "name": "Купец и жемчуг",
+        "nameFull": "Притча о купце, ищущем хорошего жемчуга",
+        "imageName": "parable_pearl",
+        "row": 80,
         "taskGroups": []
     },
+    
     {
         "id": 100,
-        "name": "Два сына",
-        "nameFull": "Притча о двух сыновьях",
-        "imageName": "parable_brothers",
-        "row": 5,
+        "name": "Невод в море",
+        "nameFull": "Притча о неводе, закинутом в море",
+        "imageName": "parable_fishing",
+        "row": 100,
         "taskGroups": []
     },
     {
         "id": 110,
-        "name": "Злые виноградари",
-        "nameFull": "Притча о злых виноградарях",
-        "imageName": "parable_sword",
-        "row": 5,
+        "name": "Светильник в доме",
+        "nameFull": "Притча о светильнике в доме",
+        "imageName": "parable_candle",
+        "row": 100,
         "taskGroups": []
     },
+    
     {
         "id": 120,
-        "name": "Благоразумный раб",
-        "nameFull": "Притча о благоразумном рабе",
-        "imageName": "parable_hardworker",
-        "row": 7,
+        "name": "Заблудившаяся овца",
+        "nameFull": "Притча о заблудившейся овце",
+        "imageName": "parable_shepherd",
+        "row": 120,
         "taskGroups": []
     },
     {
         "id": 130,
-        "name": "Десять дев",
-        "nameFull": "Притча о десяти девах",
-        "imageName": "parable_tengirls",
-        "row": 7,
+        "name": "Овца в яме",
+        "nameFull": "Притча об овце, упавшей в яму",
+        "imageName": "parable_sheep",
+        "row": 120,
         "taskGroups": []
     },
     {
         "id": 140,
-        "name": "Таланты",
-        "nameFull": "Притча о талантах",
-        "imageName": "parable_coins",
-        "row": 8,
+        "name": "Потерянная драхма",
+        "nameFull": "Притча о потерянной драхме",
+        "imageName": "parable_drachma",
+        "row": 120,
         "taskGroups": []
     },
+    
     {
         "id": 150,
-        "name": "Неприметное возрастание",
-        "nameFull": "Притча о семени, возрастающем в земле неприметным образом",
-        "imageName": "parable_tree",
-        "row": 9,
+        "name": "Два дома",
+        "nameFull": "Притча о домах на песке и камне",
+        "imageName": "parable_buildings",
+        "row": 150,
         "taskGroups": []
     },
     {
+        "id": 160,
+        "name": "Тесные врата",
+        "nameFull": "Притча о тесных вратах",
+        "imageName": "parable_gate",
+        "row": 150,
+        "taskGroups": []
+    },
+    
+    {
         "id": 170,
-        "name": "Добрый самарянин",
-        "nameFull": "Притча о добром самарянине",
-        "imageName": "parable_help",
-        "row": 10,
+        "name": "Хозяин и вор",
+        "nameFull": "Притча о хозяине дома и воре",
+        "imageName": "parable_owner",
+        "row": 170,
         "taskGroups": []
     },
     {
         "id": 180,
-        "name": "Хлеб в полночь",
-        "nameFull": "Притча о человеке, просящем хлеба в полночь у своего друга",
-        "imageName": "parable_midnight",
-        "row": 10,
+        "name": "Разделившееся царство",
+        "nameFull": "Притча о разделившемся царстве",
+        "imageName": "parable_separation",
+        "row": 170,
         "taskGroups": []
     },
     {
         "id": 190,
+        "name": "Дом сильного",
+        "nameFull": "Притча о доме сильного",
+        "imageName": "parable_building",
+        "row": 170,
+        "taskGroups": []
+    },
+    
+    {
+        "id": 200,
+        "name": "Таланты",
+        "nameFull": "Притча о талантах",
+        "imageName": "parable_coins",
+        "row": 200,
+        "taskGroups": []
+    },
+    
+    {
+        "id": 210,
         "name": "Неразумный богач",
         "nameFull": "Притча о неразумном богаче",
         "imageName": "parable_hay",
-        "row": 11,
-        "taskGroups": []
-    },
-    {
-        "id": 200,
-        "name": "Неплодная смоковница",
-        "nameFull": "Притча о неплодной смоковнице в винограднике",
-        "imageName": "parable_dry",
-        "row": 11,
-        "taskGroups": []
-    },
-    {
-        "id": 210,
-        "name": "Тесные врата",
-        "nameFull": "Притча о тесных вратах",
-        "imageName": "parable_gate",
-        "row": 12,
+        "row": 210,
         "taskGroups": []
     },
     {
         "id": 220,
-        "name": "Брачный пир",
-        "nameFull": "Притча о брачном пире",
-        "imageName": "parable_wedding",
-        "row": 13,
+        "name": "Богач и Лазарь",
+        "nameFull": "Притча о богаче и Лазаре",
+        "imageName": "parable_fire",
+        "row": 210,
         "taskGroups": []
     },
+    
     {
         "id": 230,
-        "name": "Заблудившаяся овца",
-        "nameFull": "Притча о заблудившейся овце",
-        "imageName": "parable_shepherd",
-        "row": 13,
+        "name": "Немилосердный должник",
+        "nameFull": "Притча о немилосердном должнике",
+        "imageName": "parable_jail",
+        "row": 230,
         "taskGroups": []
     },
     {
         "id": 240,
-        "name": "Потерянная драхма",
-        "nameFull": "Притча о потерянной драхме",
-        "imageName": "parable_drachma",
-        "row": 14,
+        "name": "Два должника",
+        "nameFull": "Притча о двух должниках",
+        "imageName": "parable_scales",
+        "row": 230,
         "taskGroups": []
     },
+    
     {
         "id": 250,
-        "name": "Блудный сын",
-        "nameFull": "Притча о блудном сыне",
-        "imageName": "parable_brothers",
-        "row": 14,
+        "name": "Благоразумный раб",
+        "nameFull": "Притча о благоразумном рабе",
+        "imageName": "parable_hardworker",
+        "row": 250,
         "taskGroups": []
     },
     {
         "id": 260,
-        "name": "Неверный домоправитель",
-        "nameFull": "Притча о неверном домоправителе",
-        "imageName": "parable_house",
-        "row": 14,
+        "name": "Работник с поля",
+        "nameFull": "Притча о работнике, пришедшем с поля",
+        "imageName": "parable_farmer",
+        "row": 250,
         "taskGroups": []
     },
     {
         "id": 270,
-        "name": "Богач и Лазарь",
-        "nameFull": "Притча о богаче и Лазаре",
-        "imageName": "parable_fire",
-        "row": 15,
+        "name": "Неверный домоправитель",
+        "nameFull": "Притча о неверном домоправителе",
+        "imageName": "parable_house",
+        "row": 250,
         "taskGroups": []
     },
+    
     {
         "id": 280,
-        "name": "Работник с поля",
-        "nameFull": "Притча о работнике, пришедшем с поля",
-        "imageName": "parable_farmer",
-        "row": 15,
+        "name": "Работники в винограднике",
+        "nameFull": "Притча о работниках в винограднике",
+        "imageName": "parable_grape",
+        "row": 280,
         "taskGroups": []
     },
     {
         "id": 290,
-        "name": "Неправедный судья",
-        "nameFull": "Притча о неправедном судье",
-        "imageName": "parable_judge",
-        "row": 16,
+        "name": "Злые виноградари",
+        "nameFull": "Притча о злых виноградарях",
+        "imageName": "parable_sword",
+        "row": 280,
         "taskGroups": []
     },
     {
         "id": 300,
-        "name": "Фарисей и мытарь",
-        "nameFull": "Притча о фарисее и мытаре",
-        "imageName": "parable_priest",
-        "row": 16,
+        "name": "Добрый пастырь и наёмник",
+        "nameFull": "Притча о добром пастыре и наёмнике",
+        "imageName": "parable_shepherd",
+        "row": 280,
         "taskGroups": []
     },
+    
     {
         "id": 310,
-        "name": "Десять мин",
-        "nameFull": "Притча о десяти минах",
-        "imageName": "parable_coins",
-        "row": 17,
+        "name": "Неправедный судья",
+        "nameFull": "Притча о неправедном судье",
+        "imageName": "parable_judge",
+        "row": 310,
         "taskGroups": []
     },
     {
         "id": 320,
-        "name": "Смоковница и деревья",
-        "nameFull": "Притча о смоковнице и деревьях",
-        "imageName": "parable_colortree",
-        "row": 18,
+        "name": "Хлеб в полночь",
+        "nameFull": "Притча о человеке, просящем хлеба в полночь у своего друга",
+        "imageName": "parable_midnight",
+        "row": 310,
+        "taskGroups": []
+    },
+    
+    
+    {
+        "id": 330,
+        "name": "Два слепца",
+        "nameFull": "Притча о двух слепцах",
+        "imageName": "parable_blinds",
+        "row": 330,
         "taskGroups": []
     },
     {
-        "id": 330,
-        "name": "Добрый пастырь и наёмник",
-        "nameFull": "Притча о добром пастыре и наёмнике",
-        "imageName": "parable_shepherd",
-        "row": 18,
+        "id": 340,
+        "name": "Фарисей и мытарь",
+        "nameFull": "Притча о фарисее и мытаре",
+        "imageName": "parable_priest",
+        "row": 330,
+        "taskGroups": []
+    },
+    {
+        "id": 350,
+        "name": "Ветхая одежда",
+        "nameFull": "Притча о ветхой и новой одежде",
+        "imageName": "parable_clothes",
+        "row": 330,
+        "taskGroups": []
+    },
+    
+    {
+        "id": 360,
+        "name": "Дети на улице",
+        "nameFull": "Притча о детях на улице",
+        "imageName": "parable_music",
+        "row": 360,
+        "taskGroups": []
+    },
+    {
+        "id": 370,
+        "name": "Два сына",
+        "nameFull": "Притча о двух сыновьях",
+        "imageName": "parable_brothers",
+        "row": 360,
+        "taskGroups": []
+    },
+    {
+        "id": 380,
+        "name": "Блудный сын",
+        "nameFull": "Притча о блудном сыне",
+        "imageName": "parable_son",
+        "row": 360,
+        "taskGroups": []
+    },
+    
+    {
+        "id": 390,
+        "name": "Малые птицы",
+        "nameFull": "Притча о малых птицах",
+        "imageName": "parable_birds",
+        "row": 390,
+        "taskGroups": []
+    },
+    
+    {
+        "id": 400,
+        "name": "Добрый самарянин",
+        "nameFull": "Притча о добром самарянине",
+        "imageName": "parable_help",
+        "row": 400,
+        "taskGroups": []
+    },
+    
+    {
+        "id": 410,
+        "name": "Десять дев",
+        "nameFull": "Притча о десяти девах",
+        "imageName": "parable_tengirls",
+        "row": 400,
+        "taskGroups": []
+    },
+    {
+        "id": 420,
+        "name": "Брачный пир",
+        "nameFull": "Притча о брачном пире",
+        "imageName": "parable_wedding",
+        "row": 400,
         "taskGroups": []
     }
 ]

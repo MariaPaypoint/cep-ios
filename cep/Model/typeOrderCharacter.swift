@@ -12,7 +12,7 @@ struct OrderCharacter: Identifiable,Hashable, Equatable {
     var value: String
     var padding: CGFloat = 10
     var textSize: CGFloat = .zero
-    var fontSize: CGFloat = 19
+    var fontSize: CGFloat = 16
     var isShowing: Bool = false
 }
 
@@ -20,8 +20,11 @@ func getOrderCharacters(phrase: String) -> [OrderCharacter] {
     
     var resCharacters: [OrderCharacter] = []
     
-    for str in phrase.components(separatedBy: " ") {
-        resCharacters.append(OrderCharacter(value: str))
+    let arrWords = phrase.components(separatedBy: " ")
+    let fontSize: CGFloat = arrWords.count > 25 ? 14 : (arrWords.count > 15 ? 16 : 19)
+    let padding: CGFloat = arrWords.count > 25 ? 8 : 10
+    for str in arrWords {
+        resCharacters.append(OrderCharacter(value: str, padding: padding, fontSize: fontSize))
     }
     
     return resCharacters

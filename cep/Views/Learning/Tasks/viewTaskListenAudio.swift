@@ -1,31 +1,28 @@
-//
-//  viewTaskListenAudio.swift
-//  cep
-//
 //  Created by Maria Novikova on 14.08.2022.
 
 import SwiftUI
 import AVFoundation
 
-//let periodFrom: Int64 = 18
-let periodFrom: Double = 18.0
-let periodTo: Double = 248.5 // 248
-
-
 struct viewTaskListenAudio: View {
     
-    //let localAccentColor = "AccentColorBright"
     let localAccentColor = "AccentColorCalm"
-    //let localAccentColor = "BaseOrange"
-
     var task: LessonTask
-    
     @Environment(\.dismiss) var dismiss
     
-    @State var currentTranslationIndex: Int = globalCurrentTranslationIndex
-    @State private var currentPosition = 0.0
-    
     let player = AVPlayer()
+    @State private var periodFrom: Double = 0
+    @State private var periodTo: Double = 0
+    @State private var errorDescription: String = ""
+    @State private var textVerses: [BibleTextVerseFull] = []
+    
+    @State private var currentVerseId: Int = 0
+    
+    /*
+    @State private var chapterText: String = "2"
+    @State private var verseText: String = "1"
+    */
+    
+    @State private var audioVerses: [BibleAudioVerseFull] = []
     
     var body: some View {
         
@@ -37,10 +34,65 @@ struct viewTaskListenAudio: View {
             AudioPlayerControlsView(player: player,
                                     timeObserver: PlayerTimeObserver(player: player),
                                     durationObserver: PlayerDurationObserver(player: player),
-                                    itemObserver: PlayerItemObserver(player: player), localAccentColor: localAccentColor)
+                                    itemObserver: PlayerItemObserver(player: player),
+                                    localAccentColor: localAccentColor,
+                                    periodFrom: periodFrom, periodTo: periodTo,
+                                    audioVerses: audioVerses, onChangeCurrentVerse: ChangeCurrentVerse)
+            
             
             ScrollView() {
-                viewExcerpt(task: task, translationIndex: currentTranslationIndex)
+                
+                // Кнопки для отладки
+                /*
+                HStack {
+                    TextField("chapter", text: $chapterText)
+                    TextField("verse", text: $verseText)
+                    Button {
+                        let voice = globalBibleAudio.getCurrentVoice()
+                        
+                        let ex = "gen \(chapterText):\(verseText)"
+                        textVerses = getExcerptStrings(excerpts: ex)
+                        
+                        let (from, to, err) = getExcerptPeriod(textVerses: textVerses)
+                        
+                        self.periodFrom = from
+                        self.periodTo = to
+                        self.errorDescription = err
+                    } label: {
+                        Text("Применить")
+                    }
+                    
+                    Button {
+                        verseText = String(Int(verseText)! + 1)
+                    } label: {
+                        Text("Up")
+                    }
+                }
+                */
+                
+                if globalDebug && errorDescription != "" {
+                    Text(errorDescription)
+                        .foregroundColor(.red)
+                }
+                
+                // Собственная отрисовка стихов, чтобы следить за аудио
+                ForEach(textVerses, id: \.self) { verse in
+                    
+                    if verse.changedBook || verse.changedChapter || verse.skippedVerses {
+                        Divider()
+                    }
+                    HStack(alignment: .top, spacing: 4) {
+                        Text(String(verse.id))
+                            .font(.footnote)
+                            .foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
+                            .frame(width: 20, alignment: .leading)
+                            .padding(.top, 3)
+                        Text(verse.text)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundColor(Color(uiColor: UIColor(named: verse.id == currentVerseId ? "TextBlue" : "TextBase")!))
+                    }
+                    .padding(.top, 4)
+                }
             }
             
             Button() {
@@ -51,16 +103,47 @@ struct viewTaskListenAudio: View {
             .padding(.top, 10)
             .padding(.bottom, 5)
         }
-        .padding(.horizontal, basePadding)
+        .padding(.horizontal, globalBasePadding)
+        
+        // MARK: onAppear
         .onAppear {
-            guard let url = URL(string: "https://4bbl.ru/data/syn-bondarenko/40/13.mp3") else {
+            
+            textVerses = getExcerptTextVerses(excerpts: task.data)
+            //let ex = "gen \(chapterText):\(verseText)"
+            //textVerses = getExcerptStrings(excerpts: ex)
+            
+            let (audioVerses, err) = getExcerptAudioVerses(textVerses: textVerses)
+            let (from, to) = getExcerptPeriod(audioVerses: audioVerses)
+            
+            if audioVerses.count > 0 {
+                self.currentVerseId = audioVerses[0].id
+            }
+            
+            self.audioVerses = audioVerses
+            self.periodFrom = from
+            self.periodTo = to
+            self.errorDescription = err
+            
+            // MARK: Audio URL
+            let voice = globalBibleAudio.getCurrentVoice()
+            let (book, chapter) = getExcerptBookChapterDigitCode(verses: textVerses)
+            
+            //let address = "https://500:3490205720348012725@assets.christedu.ru/data/translations/ru/\(voice.translation)/audio/\(voice.code)/\(book)/\(chapter).mp3"
+        
+            let address = "https://4bbl.ru/data/\(voice.translation)-\(voice.code)/\(book)/\(chapter).mp3"
+            
+            guard let url = URL(string: address) else {
+                self.errorDescription = "URL not found: \(address)"
                 return
             }
+            
             let playerItem = AVPlayerItem(url: url)
             self.player.replaceCurrentItem(with: playerItem)
-            
-            //self.player.seek(to: CMTimeMake(value: Int64(periodFrom*100), timescale: 100))
         }
+    }
+    
+    func ChangeCurrentVerse(_ cur: Int) {
+        self.currentVerseId = cur
     }
 }
 
@@ -79,6 +162,8 @@ struct AudioPlayerControlsView: View {
     let durationObserver: PlayerDurationObserver
     let itemObserver: PlayerItemObserver
     let localAccentColor: String
+    let periodFrom: Double
+    let periodTo: Double
     
     @State private var currentTime: TimeInterval = 0
     @State private var currentDuration: TimeInterval = 0
@@ -86,6 +171,11 @@ struct AudioPlayerControlsView: View {
     @State private var lastRate: Float = 1.0
     
     @State private var stopAtEnd = true
+    
+    let audioVerses: [BibleAudioVerseFull]
+    @State private var currentVerseIndex: Int = 0
+    
+    var onChangeCurrentVerse: ((Int) -> Void)
     
     var body: some View {
         VStack {
@@ -121,8 +211,10 @@ struct AudioPlayerControlsView: View {
                 
                 HStack{
                     
+                    // MARK: повтор
                     Button {
                         stopAtEnd = true
+                        //print("first. perdiodFrom=", periodFrom)
                         self.player.seek(to: CMTimeMake(value: Int64(periodFrom*100), timescale: 100))
                         self.state = .playing
                         self.player.play()
@@ -132,14 +224,31 @@ struct AudioPlayerControlsView: View {
                     
                     Spacer()
                     
+                    // MARK: назад на 15 секунд
+                    /*
                     Button {
                         self.player.seek(to: CMTimeMake(value: Int64((currentTime-15)*100), timescale: 100))
                     } label: {
                         Image(systemName: "gobackward.15")
                     }
+                    */
+                    
+                    // MARK: на предыдущих стих
+                    Button {
+                        if currentVerseIndex > 0 {
+                            setCurrentVerseIndex(currentVerseIndex - 1)
+                            
+                            let begin = audioVerses[currentVerseIndex].begin
+                            self.player.seek(to: CMTimeMake(value: Int64(begin*100), timescale: 100))
+                            self.currentTime = begin
+                        }
+                    } label: {
+                        Image(systemName: "chevron.backward.circle")
+                    }
                     
                     Spacer()
                     
+                    // MARK: старт / пауза
                     Button {
                         if state == .playing {
                             state = .pausing
@@ -161,14 +270,28 @@ struct AudioPlayerControlsView: View {
                     
                     Spacer()
                     
+                    // MARK: вперед на 15 секунд
+                    /*
                     Button {
                         self.player.seek(to: CMTimeMake(value: Int64((currentTime+15)*100), timescale: 100))
                     } label: {
                         Image(systemName: "goforward.15")
                     }
-                    
+                    */
+                    // MARK: на следующий стих
+                    Button {
+                        if currentVerseIndex+1 < audioVerses.count {
+                            setCurrentVerseIndex(currentVerseIndex + 1)
+                            let begin = audioVerses[currentVerseIndex].begin
+                            self.player.seek(to: CMTimeMake(value: Int64(begin*100), timescale: 100))
+                            self.currentTime = begin
+                        }
+                    } label: {
+                        Image(systemName: "chevron.forward.circle")
+                    }
                     Spacer()
                     
+                    // MARK: скорость воспроизведения
                     Button {
                         if self.state == .playing {
                             if self.player.rate >= 2 || self.player.rate < 0.6 {
@@ -195,16 +318,12 @@ struct AudioPlayerControlsView: View {
                         .font(.system(size: 13))
                         .foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
                 }.frame(width: 50)
-                    //.foregroundColor(Color(uiColor: UIColor(named: "BaseDarkPurple")!))
-                
-                
             }
             .padding(.top, 5)
             .padding(.bottom, 5)
             .font(.system(size: 22))
             
             // MARK: Timeline
-            
             ZStack {
                 
                 Slider(value: $currentTime, in: 0...currentDuration, onEditingChanged: sliderEditingChanged)
@@ -214,15 +333,13 @@ struct AudioPlayerControlsView: View {
                         UISlider.appearance()
                             .setThumbImage(UIImage(systemName: "circle.fill",
                                                    withConfiguration: progressCircleConfig), for: .normal)
-                        
                     }
                     .disabled(state == .waitingForSelection || state == .buffering)
-                    //.blendMode(.multiply)
                 
                 if currentDuration > 0 {
                     
                     // https://stackoverflow.com/a/62641399
-                    let frameWidth: Double = UIScreen.main.bounds.size.width - basePadding*2
+                    let frameWidth: Double = UIScreen.main.bounds.size.width - globalBasePadding*2
                     let point: Double = frameWidth / currentDuration
                     
                     let pointStart: Double = Double(periodFrom) * point
@@ -245,7 +362,6 @@ struct AudioPlayerControlsView: View {
                             .padding(.trailing, firstTrailing)
                             .frame(width: frameWidth, height: 4)
                             .padding(.top, -0.9)
-                            //.blendMode(.multiply)
                     }
                     
                     if pointEnd > pointCenter {
@@ -255,13 +371,11 @@ struct AudioPlayerControlsView: View {
                             .padding(.trailing, secondTrailing)
                             .frame(width: frameWidth, height: 4)
                             .padding(.top, -0.9)
-                            //.blendMode(.multiply)
                     }
                 }
             }
             
             // MARK: Translations
-            
             HStack {
                 Text("Читает Игорь Козлов (SYNO)")
                     .foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
@@ -287,12 +401,16 @@ struct AudioPlayerControlsView: View {
             */
         }
         
+        .onAppear() {
+            try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+        }
+        
         // MARK: Observers
         
         // Listen out for the time observer publishing changes to the player's time
         .onReceive(timeObserver.publisher) { time in
             // Update the local var
-            //print("time: \(time)")
+            
             self.currentTime = time
             // And flag that we've started playback
             ///if time > 0 {
@@ -303,6 +421,16 @@ struct AudioPlayerControlsView: View {
                 self.state = .pausing
                 self.player.pause()
             }
+            
+            var cur = currentVerseIndex
+            for (index, verse) in audioVerses.enumerated() {
+                if time >= verse.begin && time < verse.end {
+                    cur = index
+                    break
+                }
+            }
+            setCurrentVerseIndex(cur)
+            
         }
         // Listen out for the duration observer publishing changes to the player's item duration
         .onReceive(durationObserver.publisher) { duration in
@@ -329,6 +457,13 @@ struct AudioPlayerControlsView: View {
 //            self.currentTime = 0
 //            self.currentDuration = 0
 //        }
+    }
+    
+    private func setCurrentVerseIndex(_ cur: Int) {
+        if cur != currentVerseIndex {
+            currentVerseIndex = cur
+            onChangeCurrentVerse(audioVerses[cur].id)
+        }
     }
     
     // MARK: Private functions
@@ -360,7 +495,7 @@ struct AudioPlayerControlsView: View {
 
 struct viewTaskListenAudio_Previews: PreviewProvider {
     static var previews: some View {
-        viewTaskListenAudio(task: lessons[0].taskGroups[0].tasks[0])
+        viewTaskListenAudio(task: lessons[0].taskGroups[0].tasks[1])
             .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
             //.previewDevice(PreviewDevice(rawValue: "iPhone 13 Pro Max"))
             //.preferredColorScheme(.dark)

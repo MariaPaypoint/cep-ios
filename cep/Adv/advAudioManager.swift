@@ -100,7 +100,7 @@ class PlayerTimeObserver {
         self.player = player
         
         // Periodically observe the player's current time, whilst playing
-        timeObservation = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.5, preferredTimescale: 600), queue: nil) { [weak self] time in
+        timeObservation = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.2, preferredTimescale: 600), queue: nil) { [weak self] time in
             guard let self = self else { return }
             // If we've not been told to pause our updates
             guard !self.paused else { return }

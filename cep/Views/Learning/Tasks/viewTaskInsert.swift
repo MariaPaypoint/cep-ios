@@ -61,7 +61,7 @@ struct viewTaskInsert: View {
             
             Spacer()
         }
-        .padding(basePadding)
+        .padding(globalBasePadding)
         .sheet(isPresented: $showHelp) {
             viewQuote(task: task)
                 .accentColor(Color(uiColor: UIColor(named: "TextBlue")!))

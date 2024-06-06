@@ -22,7 +22,7 @@ struct DesignColors {
     //let TabGray = Color(red: 23/ff, green: 49/ff, blue: 72/ff)
     
     // надо дополнить до X групп, и в каждой по Y цветов, и где-то проверять, что задано не больше
-    let Gradients = [
+    private let Gradients = [
         [
             Color.init(red: 0/ff, green: 128/ff, blue: 168/ff),
             Color.init(red: 7/ff, green: 152/ff, blue: 198/ff),
@@ -67,6 +67,14 @@ struct DesignColors {
         ]
     ]
     
+    func getGradient(grp: Int, row: Int) -> Color {
+        
+        let resGrp = grp >= Gradients.count ? Gradients.count - 1 : grp
+        let resRow = row >= Gradients[grp].count ? Gradients[grp].count - 1 : row
+        
+        return Gradients[resGrp][resRow]
+    }
+    
     let lessonNewBack = Color.init(red: 242/ff, green: 242/ff, blue: 242/ff)
     let lessonNewBorder = Color(.tertiaryLabel) // Color.init(red: 229/ff, green: 229/ff, blue: 229/ff)
     let lessonNewAccent = Color.init(red: 191/ff, green: 191/ff, blue: 191/ff)
@@ -80,4 +88,4 @@ struct DesignColors {
     let lessonDoneAccent = Color.init(red: 155/ff, green: 217/ff, blue: 117/ff)
 }
 
-let designColors = DesignColors()
+

@@ -31,7 +31,7 @@ struct viewTasks: View {
                     }
                 }
             }
-            .padding(basePadding)
+            .padding(globalBasePadding)
         }
         .fullScreenCover(isPresented: $showTaskItem) {
             //viewTaskListenAudio(task: lesson.taskGroups[0].tasks[0])
@@ -59,7 +59,7 @@ struct viewTasks: View {
             Text(lessonCaption)
                 .font(.largeTitle)
                 .foregroundColor(Color(uiColor: UIColor(named: "TextBlue")!))
-                .fontWeight(.thin)
+                .fontWeight(.light)
                 .multilineTextAlignment(.center)
                 //.padding(.horizontal, basePadding)
                 .frame(alignment: .center)
@@ -77,8 +77,9 @@ struct viewTasks: View {
         Text(grpCaption)
             .foregroundColor(Color(uiColor: UIColor(named: "TextGray")!))
             //.foregroundColor(Color(.tertiaryLabel))
-            .padding(.vertical, basePadding)
+            .padding(.vertical, globalBasePadding)
             .font(.system(size: 16))
+            .multilineTextAlignment(.center)
     }
     
     struct TaskParams {
@@ -125,6 +126,8 @@ struct viewTasks: View {
             case "insert_missed"    : viewTaskInsert(task: task)
             case "find_words"       : viewTaskFindWords(task: task)
             case "put_in_order"     : viewTaskOrderWords(task: task)
+            case "answer_question"  : viewTaskAnswerQuestion(task: task)
+            case "comment"          : viewTaskComments(task: task)
             default: viewTaskReadExcerpt(task: task)
         }
     }
@@ -148,7 +151,7 @@ struct viewTasks: View {
                         .scaledToFit()
                         .frame(width: 20, height: 20, alignment: .center)
                         .padding(10)
-                        .background(designColors.Gradients[groupIndex][taskIndex])
+                        .background(designColors.getGradient(grp: groupIndex, row: taskIndex))
                         .clipShape(Circle())
                         .foregroundColor(.white)
                         //.padding(.leading, 15)

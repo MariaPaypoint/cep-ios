@@ -47,7 +47,7 @@ struct viewQuote: View {
                         //    Text(verses[$0]!)
                         //}
                         
-                        let excerpt = getExcerptText(excerpts: task.data, translationIndex: globalCurrentTranslationIndex)
+                        let excerpt = getExcerptText(excerpts: task.data)
                         Text(excerpt)
                             .multilineTextAlignment(.center)
                             .font(excerpt.count > 200 ? .body.weight(.regular) : .title3.weight(.regular))
@@ -59,7 +59,7 @@ struct viewQuote: View {
                     //.padding(.horizontal, metrics.size.width * 0.175)
                     
                 }
-                .padding(.horizontal, -basePadding)
+                .padding(.horizontal, -globalBasePadding)
                 
                 Spacer()
                 Spacer()
@@ -69,7 +69,7 @@ struct viewQuote: View {
                     baseButtonLabel("Продолжить", colorName: localAccentColor)
                 }
             }
-            .padding(basePadding)
+            .padding(globalBasePadding)
         }
     }
 }

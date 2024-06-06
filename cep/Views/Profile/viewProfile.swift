@@ -66,6 +66,7 @@ struct viewProfile: View {
                             
                             
                         } label: {
+                            /*
                             HStack {
                                 Image("icon_edit")
                                 Text("Редактировать")
@@ -76,6 +77,8 @@ struct viewProfile: View {
                             .frame(maxWidth: .infinity)
                             .background(Color(uiColor: UIColor(named: "BaseOrange")!))
                             .cornerRadius(10)
+                             */
+                            baseButtonLabel("Изменить", colorName: "BaseOrange", imageName: "icon_edit")
                         }
                         
                         Spacer()
@@ -84,6 +87,7 @@ struct viewProfile: View {
                         Button() {
                             showAuth = true
                         } label: {
+                            /*
                             HStack {
                                 Text("Выйти")
                                     .font(.subheadline)
@@ -94,6 +98,8 @@ struct viewProfile: View {
                             .frame(maxWidth: .infinity)
                             .background(Color(uiColor: UIColor(named: "BaseRed")!))
                             .cornerRadius(10)
+                             */
+                            baseButtonLabel("Выйти", colorName: "BaseRed", imageName: "icon_exit")
                         }
                     }
                     .padding(.vertical, 20)
@@ -185,7 +191,7 @@ struct viewProfile: View {
                 }
             }
         }
-        .padding(.top)
+        .padding(.top, 5)
         .padding(.leading, 35)
     }
     

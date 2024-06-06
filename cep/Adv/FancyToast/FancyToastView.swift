@@ -35,7 +35,7 @@ struct FancyToastView: View {
                 }
                 .padding(.leading, 5)
             }
-            .padding(basePadding)
+            .padding(globalBasePadding)
         }
         
         .overlay(

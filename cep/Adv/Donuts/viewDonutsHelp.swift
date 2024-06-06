@@ -62,7 +62,7 @@ struct viewDonutsHelp: View {
                 baseButtonLabel("Понятно", colorName: localAccentColor)
             }
         }
-        .padding(basePadding)
+        .padding(globalBasePadding)
     }
 }
 

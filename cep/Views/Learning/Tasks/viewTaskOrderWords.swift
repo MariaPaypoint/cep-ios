@@ -30,17 +30,18 @@ struct viewTaskOrderWords: View {
     
     var body: some View {
         
-        VStack {
+        VStack(spacing: 0) {
             HStack(alignment: .top) {
                 viewBack() { dismiss() }
                 
-                Spacer()
                 Button {
                     showHelp.toggle()
                 } label: {
                     Image("icon_bible")
                 }
             }
+            
+            Spacer()
             
             baseCaption(text: "Расставь по порядку")
             baseSubCaption(task.dataDescription)
@@ -85,7 +86,7 @@ struct viewTaskOrderWords: View {
             }
             .disabled(progress < 1)
         }
-        .padding(.horizontal, basePadding)
+        .padding(.horizontal, globalBasePadding)
         .padding(.bottom, 10)
         .sheet(isPresented: $showHelp) {
             viewQuote(task: task)
@@ -95,7 +96,7 @@ struct viewTaskOrderWords: View {
             if rows.isEmpty {
                 // First creating shuffled one
                 // then normal one
-                characters = getOrderCharacters(phrase: getExcerptText(excerpts: task.data, translationIndex: globalCurrentTranslationIndex))
+                characters = getOrderCharacters(phrase: getExcerptText(excerpts: task.data))
                 let characters_ = characters
                 characters = characters.shuffled()
                 shuffledRows = generateGrid()
@@ -110,7 +111,6 @@ struct viewTaskOrderWords: View {
                 animationView.play()
             }
         }
-        
     }
     
     // MARK: Drag
@@ -121,7 +121,7 @@ struct viewTaskOrderWords: View {
                     ForEach($row) { $item in
                         Text(item.value)
                             .font(.system(size: item.fontSize))
-                            .padding(.vertical, 5)
+                            .padding(.vertical, item.padding/2)
                             .padding(.horizontal, item.padding)
                             .background {
                                 RoundedRectangle(cornerRadius: 6, style: .continuous)
@@ -164,13 +164,13 @@ struct viewTaskOrderWords: View {
     
     // MARK: Drop
     @ViewBuilder func DropArea() -> some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 5) {
             ForEach($rows, id: \.self) { $row in
-                HStack(spacing: 10) {
+                HStack(spacing: 5) {
                     ForEach($row) { $item in
                         Text(item.value)
                             .font(.system(size: item.fontSize))
-                            .padding(.vertical, progress < 1 ? 5 : 0)
+                            .padding(.vertical, progress < 1 ? item.padding/2 : 0)
                             .padding(.horizontal, progress < 1 ? item.padding : 0)
                             .opacity(item.isShowing || progress == 1 ? 1 : 0)
                             .background {

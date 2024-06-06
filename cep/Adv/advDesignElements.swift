@@ -52,37 +52,28 @@ import SwiftUI
         .multilineTextAlignment(.center)
      */
 }
-@ViewBuilder func baseButtonLabel(_ text: String, colorName: String) -> some View {
+@ViewBuilder func baseButtonLabel(_ text: String, colorName: String = "BaseOrange", imageName: String? = nil, systemImageName: String? = nil) -> some View {
     
-    Text(text)
-        .font(.body)
-        .foregroundColor(Color(uiColor: UIColor(named: "\(colorName)Text") ?? .white))
-        .padding(.vertical, 10)
-        //.frame(maxWidth: 180)
-        .frame(maxWidth: .infinity)
-        .background(Color(uiColor: UIColor(named: colorName)!))
-        .cornerRadius(10)
-    /*
-     .font(.body)
-     .foregroundColor(.white)
-     .padding(.vertical, 10)
-     .frame(maxWidth: 180)
-     .background(Color(uiColor: UIColor(named: "BaseBlue")!))
-     .cornerRadius(10)
-     */
+    HStack {
+        if systemImageName != nil {
+            Image(systemName: systemImageName!)
+                .font(.title2)
+        }
+        
+        if imageName != nil {
+            Image(imageName!)
+        }
+            
+        Text(text)
+            .font(.body)
+    }
+    .foregroundColor(Color(uiColor: UIColor(named: "\(colorName)Text") ?? .white))
+    .padding(.vertical, 12)
+    //.frame(maxWidth: 180)
+    .frame(maxWidth: .infinity)
+    .background(Color(uiColor: UIColor(named: colorName)!))
+    .cornerRadius(12)
 }
-
-
-@ViewBuilder func baseFullOrangeButtonLabel(text: String) -> some View {
-    Text(text)
-        .font(.body)
-        .foregroundColor(.white)
-        .padding(.vertical, 15)
-        .frame(maxWidth: .infinity)
-        .background(Color(uiColor: UIColor(named: "BaseOrange")!))
-        .cornerRadius(15)
-}
-
 
 
 // MARK: Colored Placeholder
@@ -122,8 +113,8 @@ extension View {
                 ZStack {
                     Rectangle()
                         .foregroundColor(index == selIndex ? baseColor : Color(.systemBackground))
-                        .cornerRadius(radius: index==0 ? cRadius : 0, corners: [.topLeft, .bottomLeft])
-                        .cornerRadius(radius: index==arr.count-1 ? cRadius : 0, corners: [.topRight, .bottomRight])
+                        .cornerRadius(radius: index==0 ? globalCornerRadius : 0, corners: [.topLeft, .bottomLeft])
+                        .cornerRadius(radius: index==arr.count-1 ? globalCornerRadius : 0, corners: [.topRight, .bottomRight])
                     Text(translation)
                         .padding(.vertical, 10)
                         .font(.footnote)
@@ -134,11 +125,27 @@ extension View {
     }
     .foregroundColor(baseColor)
     .overlay(
-        RoundedRectangle(cornerRadius: cRadius)
+        RoundedRectangle(cornerRadius: globalCornerRadius)
             .stroke(baseColor, lineWidth: 2)
     )
     .font(.callout)
     .background(baseColor)
-    .cornerRadius(cRadius)
+    .cornerRadius(globalCornerRadius)
     .padding(.bottom, 10)
+}
+
+// зеленый - завершен, желтый - в процессе, серый - не начат
+func getProgressColor(is_completed: Bool, is_process: Bool) -> Color {
+    
+    var clr3 = Color(uiColor: UIColor(named: "BaseGray")!)
+    if is_completed {
+        clr3 = Color(uiColor: UIColor(named: "TextGreen")!)
+    }
+    else {
+        if is_process {
+            clr3 = Color(uiColor: UIColor(named: "TextYellow")!)
+        }
+    }
+    
+    return clr3
 }

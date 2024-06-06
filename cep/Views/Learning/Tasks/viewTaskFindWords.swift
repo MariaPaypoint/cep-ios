@@ -23,7 +23,7 @@ struct viewTaskFindWords: View {
     
     let animationView = LottieAnimationView()
     
-    //@State private var complexity = 1
+    @State private var oldComplexity = globalCurrentPutInWordsComplexity
     @State private var gridSize: Int //= defaultGridSize
     
     @State private var excerpt: String //= "There is a thunderstorm."
@@ -40,7 +40,7 @@ struct viewTaskFindWords: View {
         self.task = task
         
         let sz = globalCurrentPutInWordsComplexity == 2 ? 10 : 8
-        let ex = getExcerptText(excerpts: task.data, translationIndex: globalCurrentTranslationIndex)
+        let ex = getExcerptText(excerpts: task.data)
         
         let(wo, ch) = tryGenerate(ex: ex, rows: sz, columns: sz, easyMode: globalCurrentPutInWordsComplexity == 0)
         
@@ -61,6 +61,7 @@ struct viewTaskFindWords: View {
                     Spacer()
                     Button {
                         //restartGame()
+                        oldComplexity = globalCurrentPutInWordsComplexity
                         showHelp.toggle()
                     } label: {
                         Image("icon_bible")
@@ -113,7 +114,7 @@ struct viewTaskFindWords: View {
             }
         }
         
-        .padding(basePadding)
+        .padding(globalBasePadding)
         .sheet(isPresented: $showHelp, onDismiss: didDismissHelp) {
             viewDonutsHelp(/*complexity: $complexity*/)
                 //.accentColor(Color(uiColor: UIColor(named: "TextBlue")!))
@@ -137,11 +138,14 @@ struct viewTaskFindWords: View {
     //
     func didDismissHelp() -> Void {
         
-        self.gridSize = globalCurrentPutInWordsComplexity == 2 ? 10 : 8
-        
-        if progress < 1 {
-            restartGame()
+        if oldComplexity != globalCurrentPutInWordsComplexity {
+            self.gridSize = globalCurrentPutInWordsComplexity == 2 ? 10 : 8
+            
+            if progress < 1 {
+                restartGame()
+            }
         }
+        oldComplexity = globalCurrentPutInWordsComplexity
     }
     
     // MARK: Restart
